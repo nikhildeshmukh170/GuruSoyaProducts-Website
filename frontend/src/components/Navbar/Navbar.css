@@ -15,7 +15,7 @@
     display: flex;
     list-style: none;
     gap: 20px;
-    color: #49557e;
+    color: #111406d7;
     font-size: 18px;
 }
 
@@ -42,18 +42,22 @@
 }
 
 .navbar .active{
-    padding-bottom: 2px;
+    padding-bottom: 4px;
     border-bottom: 2px solid #49557e;
+    color: #F26D00;
 }
 
 .navbar li{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
     cursor: pointer;
     transition: 0.3s;
 
 }
 
 .navbar li:hover{
-    font-weight: 600;
+    /* font-weight: 600; */
+    color: #F26D00;
 
 }
 

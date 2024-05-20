@@ -66,6 +66,7 @@ margin-left: 40px;
 }
 
 .header .header-contents{
+    /* margin-left: 84px; */
     width:800px;
     display: flex;
     flex-direction: column;
@@ -84,8 +85,10 @@ margin-left: 40px;
 }
 
 .header .header-contents p{
-    width: 440px;
+    font-family: "Montserrat", sans-serif;
+    width: 470px;
     font-size: 20px;
+    color: #445218;
 }
 
 .header-contents button{

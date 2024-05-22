@@ -1,12 +1,44 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import './Header.css'
 import { assets } from '../../assets/assets'
 
 const Header = () => {
+
+  const fullText = [
+    "Explore the goodness of soybeans with ",
+    "Guru Soya Products."
+];
+const [displayedText, setDisplayedText] = useState(["", ""]);
+const [index, setIndex] = useState(0);
+
+useEffect(() => {
+    const totalLength = fullText[0].length + fullText[1].length;
+    if (index < totalLength) {
+        const timeout = setTimeout(() => {
+            if (index < fullText[0].length) {
+                // Typing the first part of the text
+                setDisplayedText([fullText[0].substring(0, index + 1), ""]);
+            } else {
+                // Typing the second part of the text
+                const newIndex = index - fullText[0].length;
+                setDisplayedText([fullText[0], fullText[1].substring(0, newIndex + 1)]);
+            }
+            setIndex(index + 1);
+        }, 100); // Adjust typing speed here
+        return () => clearTimeout(timeout);
+    }
+}, [index, fullText]);
+
+
   return (
     <div className='header'>
         <div className="header-contents">
-            <h1>Explore the goodness of soybeans with <span><br/>Guru Soya Products.</span></h1>
+          <h1>
+                {displayedText[0]}<br/>
+                <span>{displayedText[1]}</span>
+            </h1>
+            {/* <h1>Explore the goodness of soybeans with <span><br/>Guru Soya Products.</span></h1> */}
+            {/* <TypingText /> */}
             <p>Welcome to Guru Soya Products. We are experts in creating soy-based delicacies that cater to your culinary preferences. Browse our diverse collection today.</p>
             <button><h3>Learn More!</h3> <img src={assets.right_arrow} alt="" className="right_arrow" /></button>
         </div>

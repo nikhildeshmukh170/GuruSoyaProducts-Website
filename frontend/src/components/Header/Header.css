@@ -1,4 +1,13 @@
 
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes fadeIn{
+    0% { opacity: 0;}
+    100% { opacity: 1;}
+}
 
 .header{
 width: 100%;
@@ -38,46 +47,62 @@ border-radius: 0px 0px 0px 0px;
 
 .main_img .flow_line {
     width: 923px;
-height: 719px;
-position: absolute;
-margin-top: -50px;
+    height: 719px;
+    position: absolute;
+    margin-top: -50px;
+    animation: fadeIn 2s;
 }
 
 .main_img .all_prods{
     width: 950px;
-height: 550px;
-overflow: hidden;
-position: absolute;
-margin-top: 60px;
-margin-left: -50px;
+    height: 550px;
+    overflow: hidden;
+    position: absolute; 
+    margin-top: 60px;
+    margin-left: -50px;
+    animation: slideInFromRight 2s ease-in-out;
 }
+
+@keyframes slideInFromRight {
+    0% {
+      opacity: 0;
+      transform: translateX(-15%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
 
 .main_img .product_bg{
     width: 1000px;
-height: 478px;
-display: block;
-background: linear-gradient(180deg, #ffffff 0%, rgba(255, 196, 0, 0.7) 100%);
-overflow: hidden;
-transform-style: preserve-3d;
-position: absolute;
-border-radius: 0px 0px 0px 0px;
-margin-top: 150px;
-margin-left: 40px;
+    height: 478px;
+    display: block;
+    background: linear-gradient(180deg, #ffffff 0%, rgba(255, 196, 0, 0.7) 100%);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    position: absolute;
+    border-radius: 0px 0px 0px 0px;
+    margin-top: 150px;
+    margin-left: 40px;
+    
 }
 
 .header .header-contents{
-    /* margin-left: 84px; */
+    margin-left: 40px;
     width:800px;
     display: flex;
     flex-direction: column;
     gap: 40px;
+    
 }
 
 .header .header-contents h1{
     font-size: 56px;
     color: #343434;
     font-weight: bold;
-    
+    white-space: pre-wrap;
 }
 
 .header .header-contents h1 span{

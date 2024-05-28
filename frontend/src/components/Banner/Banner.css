@@ -1,0 +1,125 @@
+.banner {
+  width: 90%;
+  height: 100px;
+  justify-content: center;
+  margin: auto;
+  background: #87a330;
+  border-radius: 400px;
+  animation: fadeIn 3s;
+}
+
+div.content-slider {
+    margin: auto;
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  height: 100px;
+  /* border-radius: 50%; */
+  div.content-barrier {
+    overflow: hidden;
+    position: relative;
+  }
+  ul.content {
+    display: flex;
+    height: 100%;
+    li.prod-name {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      color: #ffffff;
+      font-weight: bold;
+      font-family: "Aclonica", sans-serif;
+      font-size: 32px;
+    }
+  }
+}
+
+@keyframes translatestf {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-500%);
+  }
+}
+#stffull div.content-barrier {
+  ul.content {
+    width: 500%;
+    li.prod-name {
+      animation: translatestf 30s linear infinite;
+      h4 {
+        font-size: 28px;
+      }
+    }
+  }
+}
+
+@keyframes translateinfinite {
+  100% {
+    transform: translateX(calc(-180px * 12));
+  }
+}
+#infinite div.content-barrier {
+  background: transparent;
+  /* box-shadow: 0 3px 10px -3px rgba(0, 0, 0, 0.3); */
+  border-radius: 50px;
+  &::before,
+  &::after {
+    content: " ";
+    position: absolute;
+    z-index: 9;
+    width: 180px;
+    height: 100%;
+    border-radius: 50px;
+  }
+  &::before {
+    top: 0;
+    left: 0;
+    background: linear-gradient(
+      to right,
+      #87a330,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+  &::after {
+    top: 0;
+    right: 0;
+    background: linear-gradient(
+      to left,
+      #87a330,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+  ul.content {
+    width: calc(180px * 24);
+    li.prod-name {
+        gap: 20px;
+      width: 200px;
+      animation: translateinfinite 25s linear infinite;
+      span.fab {
+        font-size: 65px;
+      }
+    }
+  }
+}
+
+
+.banner img{
+    width: 60px;
+}
+
+.banner .prod-name span{
+    font-size: 20px;
+    color: rgb(2, 87, 2);
+    font-family: "Aclonica", sans-serif;
+}
+
+.banner .prod-name .name{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Aclonica", sans-serif;
+}

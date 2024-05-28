@@ -1,6 +1,7 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poetsen+One&display=swap'); */
 @import url('https://fonts.cdnfonts.com/css/satoshi');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poetsen+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poetsen+One&display=swap');
 
 *{
   padding: 0;
@@ -22,3 +23,30 @@ a{
   /* width: 100%; */
   margin: auto;
 }
+
+@keyframes easeInOut {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes fadeIn{
+  0% { opacity: 0;}
+  100% { opacity: 1;}
+}
+

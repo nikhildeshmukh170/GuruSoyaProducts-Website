@@ -1,0 +1,30 @@
+.Section_Catagory{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.Section_Catagory .stack{
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+}
+
+.Section_Catagory .stack .heading{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.Section_Catagory .stack .heading .heading_main{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* .stack .stackup{
+height: 275px;
+display: flex;
+flex-direction: row;
+} */
+

@@ -92,7 +92,7 @@ const Itemslist = () => {
                 <div className="button">
                   <div className="addtocart">
                     <button>
-                      Buy Now!
+                      Add To Cart
                       <img src={assets.add_shopping_cart} alt="" />
                     </button>
                   </div>

@@ -10,7 +10,7 @@ import flour from "./power.png";
 import tofu from "./tofu.png";
 import papad from "./masala-papad.png";
 import cookies from "./cookies.png";
-
+import cross_icon from "./remove.png";
 import add_shopping_cart from "./add_shopping_cart.svg"
 import currency_rupee from "./currency_rupee.svg"
 
@@ -43,7 +43,8 @@ export const assets = {
   item_1,
   add_shopping_cart,
   currency_rupee,
-  soyachunks
+  soyachunks,
+  cross_icon
 };
 
 export const item_list = [

@@ -5,6 +5,8 @@ import Banner from '../../components/Banner/Banner'
 import ProductCatagory from '../../components/ProductCatagory/ProductCatagory'
 import Itemslist from '../../components/itemslist/Itemslist'
 import Catagories from '../../components/Catagories/Catagories'
+import CategorySection from '../../components/CategorySection/CategorySection'
+// import Footer from '../../components/Footer/Footer'
 // import SectionBanner from "https://framer.com/m/Section-Banner-4gkX.js@ELteH7KJpwGrNHwRlIve"
 
 const Home = () => {
@@ -12,11 +14,13 @@ const Home = () => {
     <div className='website'>
         <Header />
         <Banner />
-        <ProductCatagory />
+        {/* <ProductCatagory /> */}
+        <CategorySection />
         <Itemslist />
         <Catagories />
         {/* <SectionBanner /> */}
     </div>
+    
   )
 }
 

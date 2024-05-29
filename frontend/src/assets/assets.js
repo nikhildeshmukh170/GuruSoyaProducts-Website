@@ -22,6 +22,10 @@ import item_5 from "./cookies.png";
 import item_6 from "./tofu.jpeg";
 
 import soyachunks from "./HealthyMasterPouch_3.webp"
+import Soyabeverages from "./soyabeverages.jpg"
+import SoyaNutrient from "./Soya_Nutrient.jpg"
+import SoyaMeal from "./Soya_meal.jpg"
+import SoyaCookies from "./soya_cookies.jpg"
 
 export const assets = {
   white_logo,
@@ -85,4 +89,14 @@ export const item_list = [
     item_weight: "300",
     item_image: item_5,
   },
+];
+
+
+export const categories = [
+  { id: 1, firp: 'OUR PRODUCT CATEGORIES', secp: 'Indulge your taste buds with our delightful treats.', thirp: "Experience a world of soy-based delights with Guru Soya Product. Our range offers wholesome snacks and nutritious ingredients to suit every taste bud. Dive in and savor the goodness of soy in every bite.", },
+  { id: 2, title: 'Soya Snacks', imageUrl: soyachunks, },
+  { id: 3, title: 'Soya beverages', imageUrl: Soyabeverages, },
+  { id: 4, title: 'Soya Nutrient', imageUrl: SoyaNutrient, },
+  { id: 5, title: 'Soya Meal', imageUrl: SoyaMeal, },
+  { id: 6, title: 'Soya Cookies', imageUrl: SoyaCookies, },
 ];

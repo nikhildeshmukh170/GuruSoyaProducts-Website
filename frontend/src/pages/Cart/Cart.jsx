@@ -4,12 +4,23 @@ import { StoreContext } from "../../context/StoreContext";
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const { cartItems, item_list, removeFromCart, getTotalCartAmount } = useContext(StoreContext);
+  const { cartItems, item_list, addToCart, removeFromCart, getTotalCartAmount } = useContext(StoreContext);
 
   const navigate = useNavigate();
+  const minimumTotalAmount = 100;
 
   // Check if the cart is empty
   const isCartEmpty = Object.values(cartItems).every((item) => item === 0);
+
+  const totalAmount = getTotalCartAmount() + (getTotalCartAmount() === 0 ? 0 : 2);
+
+  const handleCheckout = () => {
+    if (totalAmount >= minimumTotalAmount) {
+      navigate('/order');
+    } else {
+      alert('Minimum total amount should be ₹100 to proceed to checkout.');
+    }
+  };
 
   return (
     <div className="cart">
@@ -39,7 +50,21 @@ const Cart = () => {
                     <img src={item.item_image} alt="" />
                     <p>{item.item_name}</p>
                     <p>&#8377; {item.item_rate}</p>
-                    <p>{cartItems[item.item_id]}</p>
+                    <div className="quantity-control">
+                      <button
+                        className="decrement-button"
+                        onClick={() => removeFromCart(item.item_id)}
+                      >
+                        -
+                      </button>
+                      <p>{cartItems[item.item_id]}</p>
+                      <button
+                        className="increment-button"
+                        onClick={() => addToCart(item.item_id)}
+                      >
+                        +
+                      </button>
+                    </div>
                     <p>&#8377; {item.item_rate * cartItems[item.item_id]}</p>
                     <p
                       onClick={() => removeFromCart(item.item_id)}
@@ -68,15 +93,27 @@ const Cart = () => {
                 <hr />
                 <div className="cart-total-details">
                   <p>Delivery Fee</p>
-                  <p>&#8377; {2}</p>
+                  <p>&#8377; {getTotalCartAmount() === 0 ? 0 : 2}</p>
                 </div>
                 <hr />
                 <div className="cart-total-details">
                   <b>Total</b>
-                  <b>&#8377; {getTotalCartAmount() + 2}</b>
+                  <b>&#8377; {totalAmount}</b>
                 </div>
               </div>
-              <button onClick={()=> navigate('/order')}> PROCEED TO CHECKOUT</button>
+              <button
+                onClick={handleCheckout}
+                disabled={totalAmount < minimumTotalAmount}
+                style={{
+                  backgroundColor: totalAmount < minimumTotalAmount ? 'grey' : '#229a26',
+                  cursor: totalAmount < minimumTotalAmount ? 'not-allowed' : 'pointer'
+                }}
+              >
+                PROCEED TO CHECKOUT
+              </button>
+              {totalAmount < minimumTotalAmount && (
+                <p className="alert"><b>*</b> Min. &#8377; 100 order required for checkout.</p>
+              )}
             </div>
             <div className="cart-promocode">
               <div>

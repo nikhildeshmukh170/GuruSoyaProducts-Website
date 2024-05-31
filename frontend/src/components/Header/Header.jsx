@@ -37,7 +37,7 @@ const Header = () => {
         <h1>
           {displayedText[0]}
           <br />
-          <span>{displayedText[1]}</span>
+          <span class="shine">{displayedText[1]}</span>
         </h1>
         {/* <h1>Explore the goodness of soybeans with <span><br/>Guru Soya Products.</span></h1> */}
         {/* <TypingText /> */}

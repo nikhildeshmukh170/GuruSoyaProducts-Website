@@ -146,3 +146,32 @@ border-radius: 0px 0px 0px 0px;
     transform: translate(20%);
     /* visibility: visible; */
 }
+
+
+
+.shine {
+    display: inline-block;
+    position: relative;
+    color: #000; /* Your base text color */
+    overflow: hidden;
+  }
+  
+  .shine::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(115deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.2) 100%);
+    transform: rotate(25deg);
+    transition: all 0.4s ease;
+    pointer-events: none; /* Prevents the pseudo-element from capturing mouse events */
+  }
+  
+  .shine:hover::before {
+    left: 100%;
+    top: 100%;
+    transition: all 0.4s ease;
+  }
+  

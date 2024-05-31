@@ -49,6 +49,7 @@ export const assets = {
 
 export const item_list = [
   {
+    item_id: "1",
     item_name: "Soya Cafe Nutrient",
     item_discription: "Elevate your coffee experience with our Soya Café Nutrient Boost. This delicious blend combines the robust flavors of premium coffee with the health benefits of soy protein and essential nutrients. Perfect for starting your day with a burst of energy and nutrition!",
     item_rate: "10",
@@ -56,6 +57,7 @@ export const item_list = [
     item_image: item_1,
   },
   {
+    item_id: "2",
     item_name: "Soya Roasted Namkeen",
     item_discription: "Indulge in a guilt-free snacking experience with our Soya Roasted Namkeen. This crunchy and flavorful snack is perfect for those who love a healthy yet tasty treat. Made from high-quality soybeans, our namkeen is roasted to perfection and seasoned with a blend of aromatic spices.",
     item_rate: "20",
@@ -63,6 +65,7 @@ export const item_list = [
     item_image: item_2,
   },
   {
+    item_id: "3",
     item_name: "Soya Flour",
     item_discription: "Enhance your baking and cooking with our Premium Soya Flour. Made from finely ground, high-quality soybeans, this versatile flour is a fantastic addition to your pantry, offering numerous health benefits and a rich, nutty flavor.",
     item_rate: "30",
@@ -70,6 +73,7 @@ export const item_list = [
     item_image: item_3,
   },
   {
+    item_id: "4",
     item_name: "Organic Soya Tofu",
     item_discription: "Discover the versatility and nutritional benefits of our Organic Soya Tofu. Made from the finest organic soybeans, our tofu is a perfect addition to a variety of dishes, offering a high-protein, low-fat alternative to meat and dairy products.",
     item_rate: "70",
@@ -77,6 +81,7 @@ export const item_list = [
     item_image: item_6,
   },
   {
+    item_id: "5",
     item_name: "Soya Udad Papad",
     item_discription: "Enjoy the perfect blend of taste and nutrition with our Soya Urad Papad. Made from high-quality urad dal and enriched with soya, these crispy papads are an excellent addition to any meal, offering a delicious crunch and a boost of plant-based protein.",
     item_rate: "50",
@@ -84,6 +89,7 @@ export const item_list = [
     item_image: item_4,
   },
   {
+    item_id: "6",
     item_name: "Soya Cookies",
     item_discription: "Treat yourself to the perfect blend of taste and nutrition with our Soya Cookies. Made with high-quality soy flour and wholesome ingredients, these cookies are not only delicious but also packed with plant-based protein and fiber, making them an ideal snack for any time of the day.",
     item_rate: "90",

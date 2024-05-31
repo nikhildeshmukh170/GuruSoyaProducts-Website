@@ -147,7 +147,7 @@
   /* mar */
 }
 
-.button button {
+.button .cartbutton {
   display: flex;
   gap: 0px;
   justify-content: space-evenly;
@@ -157,7 +157,7 @@
   position: absolute;
 }
 
-.button .addtocart button img {
+.button .addtocart .cartbutton img {
   /* transform: translateX(20px); */
   /* position: absolute; */
   visibility: hidden;
@@ -165,12 +165,13 @@
   transition: 0.5s;
 }
 
-.button .addtocart button {
+.button .addtocart .cartbutton {
   color: white;
   font-size: 16px;
   width: 140px;
   height: 45px;
-  background: green;
+  
+  background: #046e08;
   padding-right: 6px;
   padding-left: 6px;
   padding-top: 1px;
@@ -180,15 +181,16 @@
   transition: 0.3s;
 }
 
-.button .addtocart button:hover {
+.button .addtocart .cartbutton:hover {
   font-size: 14px;
   padding-left: 4px;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    background: #229a26;
   /* width: 150px; */
 }
 
-.button .addtocart button:hover img {
+.button .addtocart .cartbutton:hover img {
   position: relative;
   width: 24px;
   visibility: visible;
@@ -227,4 +229,27 @@
 .button .rate .price_gm h3 {
   margin-top: -10px;
   color: rgb(255, 0, 0);
+}
+
+
+.item_counter{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.increment-button,
+.decrement-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 20px;
 }

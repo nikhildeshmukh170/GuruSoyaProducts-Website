@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Itemlist.css";
 import { assets, item_list } from "../../assets/assets";
 import Slider from "react-slick";
@@ -9,6 +9,7 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
+import { StoreContext } from "../../context/StoreContext";
 
 // Custom Arrow Component
 const CustomArrow = ({ className, style, onClick, icon }) => {
@@ -32,7 +33,8 @@ const CustomArrow = ({ className, style, onClick, icon }) => {
 };
 
 const Itemslist = () => {
-  const [currentSlide, setCurrentSlide] = useState(0); // Track current slide index
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const {cartItems, addToCart, removeFromCart} = useContext(StoreContext);
 
   const settings = {
     dots: true,
@@ -72,6 +74,27 @@ const Itemslist = () => {
     ],
   };
 
+  // const handleAddToCart = (itemName) => {
+  //   setItemCounts((prevCounts) => ({
+  //     ...prevCounts,
+  //     [itemName]: (prevCounts[itemName] || 0) + 1,
+  //   }));
+  // };
+
+  // const handleIncrement = (itemName) => {
+  //   setItemCounts((prevCounts) => ({
+  //     ...prevCounts,
+  //     [itemName]: prevCounts[itemName] + 1,
+  //   }));
+  // };
+
+  // const handleDecrement = (itemName) => {
+  //   setItemCounts((prevCounts) => ({
+  //     ...prevCounts,
+  //     [itemName]: prevCounts[itemName] > 0 ? prevCounts[itemName] - 1 : 0,
+  //   }));
+  // };
+
   return (
     <div className="product_items">
       <div className="heading">
@@ -91,10 +114,32 @@ const Itemslist = () => {
                 <p className="prod_discri">{item.item_discription}</p>
                 <div className="button">
                   <div className="addtocart">
-                    <button>
-                      Add To Cart
-                      <img src={assets.add_shopping_cart} alt="" />
-                    </button>
+                    {!cartItems[item.item_id] ? (
+                      <button className="cartbutton" onClick={() => addToCart(item.item_id)}>
+                        Add To Cart
+                        <img
+                          className="add"
+                          src={assets.add_shopping_cart}
+                          alt=""
+                        />
+                      </button>
+                    ) : (
+                      <div className="item_counter">
+                        <button
+                          className="decrement-button"
+                          onClick={() => removeFromCart(item.item_id)}
+                        >
+                          -
+                        </button>
+                        <p>{cartItems[item.item_id]}</p>
+                        <button
+                          className="increment-button"
+                          onClick={() => addToCart(item.item_id)}
+                        >
+                          +
+                        </button>
+                      </div>
+                    )}
                   </div>
                   <div className="rate">
                     <div className="rupee_sign">

@@ -26,7 +26,7 @@ const PlaceOrder = () => {
     const totalAmount = getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2;
 
     const options = {
-      key: 'rzp_test_UEcPzFIMWP5CLQ', // Enter the Key ID generated from the Dashboard
+      key: 'rzp_test_B6HcO0qllzn2dM', // Enter the Key ID generated from the Dashboard
       amount: totalAmount * 100, // Razorpay accepts amount in paisa (so multiply by 100)
       currency: 'INR',
       name: 'Guru Soya Products',

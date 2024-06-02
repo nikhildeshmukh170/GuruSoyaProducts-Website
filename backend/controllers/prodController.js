@@ -12,6 +12,7 @@ const addProd = async (req, res) => {
         discription:req.body.description,
         price:req.body.price,
         weight:req.body.weight,
+        category:req.body.category,
         image:image_filename
     })
 

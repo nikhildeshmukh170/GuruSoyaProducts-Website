@@ -11,7 +11,7 @@ import ContactUs from "./pages/ContactUs/ContactUs";
 import Login from "./components/Login/Login";
 
 const App = () => {
-  const [showLogin,setShowLogin] = useState(false)
+  const [showLogin,setShowLogin] = useState(false);
 
   return (
     <>

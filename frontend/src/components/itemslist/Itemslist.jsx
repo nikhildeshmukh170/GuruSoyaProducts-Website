@@ -37,7 +37,7 @@ const Itemslist = () => {
   const {cartItems, addToCart, removeFromCart} = useContext(StoreContext);
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 3.2,
@@ -46,6 +46,8 @@ const Itemslist = () => {
     nextArrow: <CustomArrow icon={faChevronRight} />,
     prevArrow: <CustomArrow icon={faChevronLeft} />,
     beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex), // Update current slide index
+    swipe: true,
+    swipeToSlide: true,
     responsive: [
       {
         breakpoint: 1024,

@@ -1,0 +1,41 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 5%;
+}
+
+.navbar .logo{
+    width:  max(17%, 80px);
+    height: auto;
+    margin-top: -20px;
+    margin-bottom: -20px;
+}
+
+.navbar .profile{
+    width: 40px;
+}
+
+
+.navbar .rightside{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar .rightside p{
+    padding: 4px 16px;
+    border: 2px solid rgb(113, 183, 44);
+    border-radius: 50px;
+    transition: ease-in .2s;
+    
+}
+
+.navbar .rightside p:hover{
+    padding: 6px 20px;
+    background-color: rgba(123, 184, 61, 0.145);
+}

@@ -1,2 +1,11 @@
 
 node_modules
+npm-debug.log
+
+node_modules/
+
+db.js
+.env
+.npm
+logs
+*.log

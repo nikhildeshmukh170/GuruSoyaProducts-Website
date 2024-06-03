@@ -9,3 +9,7 @@ db.js
 .npm
 logs
 *.log
+
+uploads/
+
+# git rm --cached

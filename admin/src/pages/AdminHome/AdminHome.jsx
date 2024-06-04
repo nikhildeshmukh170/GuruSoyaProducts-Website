@@ -24,7 +24,7 @@ const AdminHome = () => {
         greetingText = 'GOOD AFTERNOON,';
         bgColor = '#FFFACD'; // Light golden color for afternoon
         pTextColor = '#333'; // Dark color for afternoon
-      } else if (currentHour >= 18 && currentHour < 20) {
+      } else if (currentHour >= 16 && currentHour < 20) {
         greetingText = 'GOOD EVENING,';
         bgColor = '#FFD700'; // Golden color for evening
         pTextColor = '#333'; // Dark color for evening

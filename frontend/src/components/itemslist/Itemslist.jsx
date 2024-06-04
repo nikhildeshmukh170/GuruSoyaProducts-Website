@@ -34,7 +34,7 @@ const CustomArrow = ({ className, style, onClick, icon }) => {
 
 const Itemslist = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const {cartItems, addToCart, removeFromCart, url} = useContext(StoreContext);
+  const {cartItems, addToCart, removeFromCart} = useContext(StoreContext);
 
   const settings = {
     dots: false,

@@ -11,11 +11,11 @@ import tofu from "./tofu.png";
 import papad from "./masala-papad.png";
 import cookies from "./cookies.png";
 import cross_icon from "./remove.png";
-import add_shopping_cart from "./add_shopping_cart.svg"
-import currency_rupee from "./currency_rupee.svg"
-import profile_icon from "./profile_image.png"
-import bag_icon from "./bag.png"
-import logout_icon from "./logout.png"
+import add_shopping_cart from "./add_shopping_cart.svg";
+import currency_rupee from "./currency_rupee.svg";
+import profile_icon from "./user.png";
+import bag_icon from "./bag.png";
+import logout_icon from "./logout.png";
 
 import item_1 from "./cafe1.jpeg";
 import item_2 from "./roasted.jpeg";

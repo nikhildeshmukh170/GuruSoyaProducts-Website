@@ -23,7 +23,7 @@ const PlaceOrder = () => {
   };
 
   const handlePayment = () => {
-    const totalAmount = getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2;
+    const totalAmount = getTotalCartAmount() === 0 ? 0 : getTotalCartAmount();
 
     const options = {
       key: 'rzp_test_B6HcO0qllzn2dM', // Enter the Key ID generated from the Dashboard
@@ -129,12 +129,13 @@ const PlaceOrder = () => {
                 <hr />
                 <div className="cart-total-details">
                   <p>Delivery Fee</p>
-                  <p>&#8377; {getTotalCartAmount() === 0 ? 0 : 2}</p>
+                  {/* <p>&#8377; {getTotalCartAmount() === 0 ? 0 : 2}</p> */}
+                  <p className="free">FREE</p>
                 </div>
                 <hr />
                 <div className="cart-total-details">
                   <b>Total</b>
-                  <b>&#8377; {getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}</b>
+                  <b>&#8377; {getTotalCartAmount() === 0 ? 0 : getTotalCartAmount()}</b>
                 </div>
               </div>
               <button type="button" onClick={handlePayment} disabled={!formComplete}> PROCEED TO PAYMENT</button>

@@ -12,7 +12,7 @@ const Cart = () => {
   // Check if the cart is empty
   const isCartEmpty = Object.values(cartItems).every((item) => item === 0);
 
-  const totalAmount = getTotalCartAmount() + (getTotalCartAmount() === 0 ? 0 : 2);
+  const totalAmount = getTotalCartAmount();
 
   const handleCheckout = () => {
     if (totalAmount >= minimumTotalAmount) {
@@ -93,7 +93,8 @@ const Cart = () => {
                 <hr />
                 <div className="cart-total-details">
                   <p>Delivery Fee</p>
-                  <p>&#8377; {getTotalCartAmount() === 0 ? 0 : 2}</p>
+                  {/* <p>&#8377; {getTotalCartAmount() === 0 ? 0 : 2}</p> */}
+                  <p className="free">FREE</p>
                 </div>
                 <hr />
                 <div className="cart-total-details">

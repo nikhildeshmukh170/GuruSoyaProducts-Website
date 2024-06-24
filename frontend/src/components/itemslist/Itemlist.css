@@ -55,9 +55,36 @@
   /* border-radius: 5px; */
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
+  object-fit: cover;
 }
 
-.prod_img img:hover {
+.prod_img .offerTag{
+  width: 230px;
+  height: auto;
+  position: absolute;
+  margin-top: -280px;
+  margin-left: 300px;
+}
+
+.prod_img .offer_Content{
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  color: white;
+  position: absolute;
+  margin-top: -290px;
+  margin-left: 300px;
+}
+
+.product_items .slick-list {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 30px; /* Increased padding */
+}
+
+.prod_img .prod_main_img:hover {
   margin-top: -10px;
   width: 350px;
 }
@@ -143,6 +170,7 @@
   width: 280px;
   position: absolute;
   bottom: 0;
+  /* margin-left: -20px; */
   /* margin-top: 230px; */
   /* mar */
 }
@@ -223,7 +251,7 @@
 
 .button .rate .price_gm .main_rate {
   font-weight: bold;
-  font-size: 50px;
+  font-size: 38px;
 }
 
 .button .rate .price_gm h3 {

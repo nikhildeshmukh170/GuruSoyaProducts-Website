@@ -32,9 +32,11 @@ const CustomArrow = ({ className, style, onClick, icon }) => {
   );
 };
 
-const Itemslist = () => {
+const Itemslist = ({ id, name, price, weight, discription, image }) => {
+
+  const { item_list } = useContext(StoreContext);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const {cartItems, addToCart, removeFromCart} = useContext(StoreContext);
+  const {cartItems, addToCart, removeFromCart, url} = useContext(StoreContext);
 
   const settings = {
     dots: false,
@@ -106,18 +108,23 @@ const Itemslist = () => {
       </div>
       <div className="prod_card">
         <Slider {...settings} currentSlide={currentSlide}>
-          {item_list.map((item) => (
-            <div key={item.item_name} className="prod_imgname">
+          {item_list.map((item,index) => (
+            <div key={index} className="prod_imgname">
               <div className="prod_img">
-                <img src={item.item_image} alt={item.item_name} />
+                <img className="offerTag" src={assets.offerTag} alt=""/>
+                <div className="offer_Content">
+                  <p>30%</p>
+                  <p>off</p>
+                </div>
+                <img className="prod_main_img" src={url+"/images/"+item.image} alt={item.name} />
               </div>
               <div className="prod_content">
-                <p className="prod_name">{item.item_name}</p>
-                <p className="prod_discri">{item.item_discription}</p>
+                <p className="prod_name">{item.name}</p>
+                <p className="prod_discri">{item.discription}</p>
                 <div className="button">
                   <div className="addtocart">
-                    {!cartItems[item.item_id] ? (
-                      <button className="cartbutton" onClick={() => addToCart(item.item_id)}>
+                    {!cartItems[item._id] ? (
+                      <button className="cartbutton" onClick={() => addToCart(item._id)}>
                         Add To Cart
                         <img
                           className="add"
@@ -129,14 +136,14 @@ const Itemslist = () => {
                       <div className="item_counter">
                         <button
                           className="decrement-button"
-                          onClick={() => removeFromCart(item.item_id)}
+                          onClick={() => removeFromCart(item._id)}
                         >
                           -
                         </button>
-                        <p>{cartItems[item.item_id]}</p>
+                        <p>{cartItems[item._id]}</p>
                         <button
                           className="increment-button"
-                          onClick={() => addToCart(item.item_id)}
+                          onClick={() => addToCart(item._id)}
                         >
                           +
                         </button>
@@ -148,8 +155,8 @@ const Itemslist = () => {
                       <img src={assets.currency_rupee} alt="" />
                     </div>
                     <div className="price_gm">
-                      <p className="main_rate">{item.item_rate}/-</p>
-                      <h3>({item.item_weight}gm)</h3>
+                      <p className="main_rate">{item.price}/-</p>
+                      <h3>({item.weight}gm)</h3>
                     </div>
                   </div>
                 </div>

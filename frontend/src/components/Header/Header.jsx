@@ -48,7 +48,7 @@ const Header = () => {
         </p>
         <button>
           <h3>Learn More!</h3>{" "}
-          <img src={assets.right_arrow} alt="" className="right_arrow" />
+          <img src={assets.right_arrow} alt="right_arrow" className="right_arrow" />
         </button>
       </div>
       <div className="main_img">
@@ -81,7 +81,7 @@ const Header = () => {
           </svg>
         </div>
         <div className="product_bg"></div>
-        <img src={assets.all_products} alt="" className="all_prods" />
+        <img src={assets.all_products} alt="all_Products" className="all_prods" />
       </div>
     </div>
     // <div className="banner"></div>

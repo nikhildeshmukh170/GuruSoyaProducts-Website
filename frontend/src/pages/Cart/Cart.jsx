@@ -4,7 +4,7 @@ import { StoreContext } from "../../context/StoreContext";
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const { cartItems, item_list, addToCart, removeFromCart, getTotalCartAmount } = useContext(StoreContext);
+  const { cartItems, item_list, addToCart, removeFromCart, getTotalCartAmount, url } = useContext(StoreContext);
 
   const navigate = useNavigate();
   const minimumTotalAmount = 100;
@@ -43,31 +43,31 @@ const Cart = () => {
           </div>
         ) : (
           item_list.map((item) => {
-            if (cartItems[item.item_id] > 0) {
+            if (cartItems[item._id] > 0) {
               return (
-                <div key={item.item_id}>
+                <div key={item._id}>
                   <div className="cart-items-title cart-items-item">
-                    <img src={item.item_image} alt="" />
-                    <p>{item.item_name}</p>
-                    <p>&#8377; {item.item_rate}</p>
+                    <img src={url+"/images/"+item.image} alt="" />
+                    <p>{item.name}</p>
+                    <p>&#8377; {item.price}</p>
                     <div className="quantity-control">
                       <button
                         className="decrement-button"
-                        onClick={() => removeFromCart(item.item_id)}
+                        onClick={() => removeFromCart(item._id)}
                       >
                         -
                       </button>
-                      <p>{cartItems[item.item_id]}</p>
+                      <p>{cartItems[item._id]}</p>
                       <button
                         className="increment-button"
-                        onClick={() => addToCart(item.item_id)}
+                        onClick={() => addToCart(item._id)}
                       >
                         +
                       </button>
                     </div>
-                    <p>&#8377; {item.item_rate * cartItems[item.item_id]}</p>
+                    <p>&#8377; {item.price * cartItems[item._id]}</p>
                     <p
-                      onClick={() => removeFromCart(item.item_id)}
+                      onClick={() => removeFromCart(item._id)}
                       className="cross"
                     >
                       X

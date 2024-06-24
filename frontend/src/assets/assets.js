@@ -16,6 +16,8 @@ import currency_rupee from "./currency_rupee.svg";
 import profile_icon from "./user.png";
 import bag_icon from "./bag.png";
 import logout_icon from "./logout.png";
+import ratingStar from "./rating_starts.png";
+import offerTag from "./offer.png"
 
 import item_1 from "./cafe1.jpeg";
 import item_2 from "./roasted.jpeg";
@@ -50,57 +52,65 @@ export const assets = {
   cross_icon,
   profile_icon,
   bag_icon,
-  logout_icon
+  logout_icon,
+  ratingStar,
+  offerTag
 };
 
 export const item_list = [
   {
-    item_id: "1",
-    item_name: "Soya Cafe Nutrient",
-    item_discription: "Elevate your coffee experience with our Soya Café Nutrient Boost. This delicious blend combines the robust flavors of premium coffee with the health benefits of soy protein and essential nutrients. Perfect for starting your day with a burst of energy and nutrition!",
-    item_rate: "10",
-    item_weight: "10",
-    item_image: item_1,
+    _id: "1",
+    name: "Soya Cafe Nutrient",
+    description: "Elevate your coffee experience with our Soya Café Nutrient Boost. This delicious blend combines the robust flavors of premium coffee with the health benefits of soy protein and essential nutrients. Perfect for starting your day with a burst of energy and nutrition!",
+    price: "10",
+    weight: "10",
+    image: item_1,
+    category: ""
   },
   {
-    item_id: "2",
-    item_name: "Soya Roasted Namkeen",
-    item_discription: "Indulge in a guilt-free snacking experience with our Soya Roasted Namkeen. This crunchy and flavorful snack is perfect for those who love a healthy yet tasty treat. Made from high-quality soybeans, our namkeen is roasted to perfection and seasoned with a blend of aromatic spices.",
-    item_rate: "20",
-    item_weight: "35",
-    item_image: item_2,
+    _id: "2",
+    name: "Soya Roasted Namkeen",
+    description: "Indulge in a guilt-free snacking experience with our Soya Roasted Namkeen. This crunchy and flavorful snack is perfect for those who love a healthy yet tasty treat. Made from high-quality soybeans, our namkeen is roasted to perfection and seasoned with a blend of aromatic spices.",
+    price: "20",
+    weight: "35",
+    image: item_2,
+    category: ""
   },
   {
-    item_id: "3",
-    item_name: "Soya Flour",
-    item_discription: "Enhance your baking and cooking with our Premium Soya Flour. Made from finely ground, high-quality soybeans, this versatile flour is a fantastic addition to your pantry, offering numerous health benefits and a rich, nutty flavor.",
-    item_rate: "30",
-    item_weight: "100",
-    item_image: item_3,
+    _id: "3",
+    name: "Soya Flour",
+    description: "Enhance your baking and cooking with our Premium Soya Flour. Made from finely ground, high-quality soybeans, this versatile flour is a fantastic addition to your pantry, offering numerous health benefits and a rich, nutty flavor.",
+    price: "30",
+    weight: "100",
+    image: item_3,
+    category: ""
   },
   {
-    item_id: "4",
-    item_name: "Organic Soya Tofu",
-    item_discription: "Discover the versatility and nutritional benefits of our Organic Soya Tofu. Made from the finest organic soybeans, our tofu is a perfect addition to a variety of dishes, offering a high-protein, low-fat alternative to meat and dairy products.",
-    item_rate: "70",
-    item_weight: "200",
-    item_image: item_6,
+    _id: "4",
+    name: "Organic Soya Tofu",
+    description: "Discover the versatility and nutritional benefits of our Organic Soya Tofu. Made from the finest organic soybeans, our tofu is a perfect addition to a variety of dishes, offering a high-protein, low-fat alternative to meat and dairy products.",
+    price: "70",
+    weight: "200",
+    image: item_6,
+    category: ""
   },
   {
-    item_id: "5",
-    item_name: "Soya Udad Papad",
-    item_discription: "Enjoy the perfect blend of taste and nutrition with our Soya Urad Papad. Made from high-quality urad dal and enriched with soya, these crispy papads are an excellent addition to any meal, offering a delicious crunch and a boost of plant-based protein.",
-    item_rate: "50",
-    item_weight: "125",
-    item_image: item_4,
+    _id: "5",
+    name: "Soya Udad Papad",
+    description: "Enjoy the perfect blend of taste and nutrition with our Soya Urad Papad. Made from high-quality urad dal and enriched with soya, these crispy papads are an excellent addition to any meal, offering a delicious crunch and a boost of plant-based protein.",
+    price: "50",
+    weight: "125",
+    image: item_4,
+    category: ""
   },
   {
-    item_id: "6",
-    item_name: "Soya Cookies",
-    item_discription: "Treat yourself to the perfect blend of taste and nutrition with our Soya Cookies. Made with high-quality soy flour and wholesome ingredients, these cookies are not only delicious but also packed with plant-based protein and fiber, making them an ideal snack for any time of the day.",
-    item_rate: "90",
-    item_weight: "300",
-    item_image: item_5,
+    _id: "6",
+    name: "Soya Cookies",
+    description: "Treat yourself to the perfect blend of taste and nutrition with our Soya Cookies. Made with high-quality soy flour and wholesome ingredients, these cookies are not only delicious but also packed with plant-based protein and fiber, making them an ideal snack for any time of the day.",
+    price: "90",
+    weight: "300",
+    image: item_5,
+    category: ""
   },
 ];
 
@@ -112,4 +122,42 @@ export const categories = [
   { id: 4, title: 'Soya Nutrient', imageUrl: SoyaNutrient, },
   { id: 5, title: 'Soya Meal', imageUrl: SoyaMeal, },
   { id: 6, title: 'Soya Cookies', imageUrl: SoyaCookies, },
+];
+
+export const faqs_ans = [
+  {
+    id:"1",
+    ques:"What are Guru Soya Products?",
+    ans:"Guru Soya Products are a range of plant-based food items made from soybeans. Our product line includes tofu, soy milk, soy-based meat substitutes, and more."
+  },
+  {
+    id:"2",
+    ques:"Are Guru Soya Products vegan?",
+    ans:"Yes, all Guru Soya Products are 100% vegan. We use only plant-based ingredients and avoid any animal-derived components."
+  },
+  {
+    id:"3",
+    ques:"Are Guru Soya Products gluten-free?",
+    ans:"While soybeans themselves are naturally gluten-free, some of our products may contain gluten due to the processing facilities they are manufactured in. We recommend checking the product labels for specific gluten-free information."
+  },
+  {
+    id:"4",
+    ques:"Where can I buy Guru Soya Products?",
+    ans:"Our products are available in select grocery stores, health food stores, and supermarkets. You can also purchase them online through our website or various e-commerce platforms."
+  },
+  {
+    id:"5",
+    ques:"Can I freeze Guru Soya Products?",
+    ans:"Yes, you can freeze many of our products for extended storage. Tofu, for example, can be frozen, though the texture may change slightly upon thawing. We recommend consuming frozen products within a few months for optimal taste and quality."
+  },
+  {
+    id:"6",
+    ques:"Can I cook with Guru Soya Products?",
+    ans:"Absolutely! Our products are versatile and can be used in a variety of recipes. From stir-fries and curries to smoothies and desserts, the possibilities are endless. Check out our website or social media channels for recipe inspiration."
+  },
+  {
+    id:"7",
+    ques:"Are Guru Soya Products environmentally friendly?",
+    ans:"Yes, soybeans have a lower environmental footprint compared to many animal-based products. We strive to minimize our environmental impact through sustainable sourcing practices and eco-friendly packaging whenever possible."
+  },
 ];

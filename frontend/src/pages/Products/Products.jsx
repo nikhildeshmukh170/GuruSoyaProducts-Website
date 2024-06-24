@@ -1,8 +1,12 @@
 import React from 'react'
+import "./Products.css"
+import ProductDisplay from '../../components/ProductDisplay/ProductDisplay';
 
 const Products = () => {
   return (
-    <div>Products</div>
+    <div className="products">
+      <ProductDisplay />
+    </div>
   )
 }
 

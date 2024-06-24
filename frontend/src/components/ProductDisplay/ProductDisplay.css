@@ -1,0 +1,21 @@
+.ProductDisplay {
+    margin-top: 30px;
+    margin-left: 90px;
+    margin-right: 70px;
+}
+
+.ProductDisplay h2 {
+    font-size: max(2vw, 24px);
+    font-weight: 600;
+}
+
+.prod-display-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin-top: 30px;
+    gap: 60px;
+    row-gap: 80px;
+    max-height: 600px; /* Adjust this height to fit two rows as needed */
+    overflow-y: auto;  /* Enables vertical scrolling */
+    padding-right: 20px; /* Optional: adds padding to avoid scrollbar overlapping content */
+}

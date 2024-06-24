@@ -30,7 +30,7 @@ const AdminHome = () => {
         pTextColor = '#333'; // Dark color for evening
       } else {
         greetingText = 'GOOD NIGHT,';
-        bgColor = '#2F4F4F'; // Dark slate gray color for night
+        bgColor = '#000000'; // Dark slate gray color for night
         pTextColor = '#FFF'; // Light color for night
       }
 

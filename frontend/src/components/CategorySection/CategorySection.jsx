@@ -2,7 +2,7 @@ import React from 'react';
 import './CategorySection.css';
 import { assets , categories } from '../../assets/assets';
 
-const CategorySection = () => {
+const CategorySection = ({category}) => {
   return (
     <div className="category-section">
       {categories.map((category) => (

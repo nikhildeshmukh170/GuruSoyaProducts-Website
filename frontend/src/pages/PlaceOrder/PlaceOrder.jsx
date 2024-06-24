@@ -1,58 +1,57 @@
 import React, { useContext, useState } from 'react';
 import './PlaceOrder.css';
-import { StoreContext } from '../../context/StoreContext';
+import axios from 'axios';
 import logo from '../../assets/BL_bg-Logo.png';
+import { StoreContext } from "../../context/StoreContext";
 
 const PlaceOrder = () => {
-  const { getTotalCartAmount } = useContext(StoreContext);
-  const [paymentSuccess, setPaymentSuccess] = useState(false);
-  const [paymentError, setPaymentError] = useState(false);
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
-  const [state, setState] = useState('');
-  const [zipCode, setZipCode] = useState('');
-  const [country, setCountry] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [formComplete, setFormComplete] = useState(false);
+  const { getTotalCartAmount, token, item_list, cartItems, url } = useContext(StoreContext);
+  const [data, setData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    street: '',
+    city: '',
+    state: '',
+    zipCode: '',
+    country: '',
+    phone: ''
+  });
+  const [error, setError] = useState(null);
 
-  const handleInputChange = (e, setter) => {
-    setter(e.target.value);
-  };
+  const onChangeHandler = (event) => {
+    const { name, value } = event.target;
+    setData(prevData => ({ ...prevData, [name]: value }));
+  }
 
-  const handlePayment = () => {
+  const placeOrder = async (event) => {
+    event.preventDefault();
+    setError(null); // Clear any previous errors
+
     const totalAmount = getTotalCartAmount() === 0 ? 0 : getTotalCartAmount();
 
+    // Check if the cart total is zero
+    if (totalAmount === 0) {
+      setError("Cart total is zero.");
+      return;
+    }
+
+    // Prepare options for Razorpay
     const options = {
-      key: 'rzp_test_B6HcO0qllzn2dM', // Enter the Key ID generated from the Dashboard
-      amount: totalAmount * 100, // Razorpay accepts amount in paisa (so multiply by 100)
+      key: "rzp_test_zvn4xK1lXFOMrc", // Fetch Razorpay key from .env
+      amount: totalAmount * 100, // Amount in paisa
       currency: 'INR',
       name: 'Guru Soya Products',
       description: 'Test Transaction',
-      image: logo, // Use the imported logo
+      image: logo,
       handler: function (response) {
-        setPaymentSuccess(true);
-        setPaymentError(false);
-        // Send customer details and payment details to backend for processing
-        const customerDetails = {
-          firstName,
-          lastName,
-          email,
-          address,
-          city,
-          state,
-          zipCode,
-          country,
-          phoneNumber
-        };
-        // You can make an API call to your backend here to process the payment and customer details
+        // Handle successful payment
+        console.log('Payment successful:', response);
       },
       prefill: {
-        name: `${firstName} ${lastName}`,
-        email,
-        contact: phoneNumber
+        name: `${data.firstName} ${data.lastName}`,
+        email: data.email,
+        contact: data.phone
       },
       notes: {
         address: 'Razorpay Corporate Office'
@@ -62,92 +61,80 @@ const PlaceOrder = () => {
       },
       modal: {
         ondismiss: function () {
-          setPaymentError(true);
+          console.log('Payment window closed without success');
         }
       }
     };
 
     const rzp = new window.Razorpay(options);
     rzp.open();
-  };
 
-  // Function to check if all required fields are filled
-  const isFormComplete = () => {
-    return (
-      firstName !== '' &&
-      lastName !== '' &&
-      email !== '' &&
-      address !== '' &&
-      city !== '' &&
-      state !== '' &&
-      zipCode !== '' &&
-      country !== '' &&
-      phoneNumber !== ''
-    );
-  };
+    // Make API request to place order
+    const orderItems = item_list.filter(item => cartItems[item._id] > 0)
+                                .map(item => ({ ...item, quantity: cartItems[item._id] }));
+    const orderData = {
+      address: data,
+      items: orderItems,
+      amount: totalAmount
+    };
 
-  // Update form completeness state
-  const updateFormComplete = () => {
-    setFormComplete(isFormComplete());
+    try {
+      console.log("Sending order data:", orderData);
+      const response = await axios.post(`${url}/api/order/place`, orderData, {
+        headers: { token }
+      });
+      console.log("Response from server:", response.data);
+    } catch (error) {
+      console.error("Error placing order", error);
+      setError(error.response?.data?.message || "Error placing order");
+    }
   };
 
   return (
     <div>
-      {paymentSuccess ? (
-        <div className="success-message">
-          <h2>Payment Successful!</h2>
-          <p>Thank you for your purchase. Your transaction has been completed successfully.</p>
+      <form onSubmit={placeOrder} className='place-order'>
+        <div className="place-order-left">
+          <p className="title">Delivery Information</p>
+          <div className="multi-fields">
+            <input type="text" placeholder='First name' name="firstName" value={data.firstName} onChange={onChangeHandler} required />
+            <input type="text" placeholder='Last name' name="lastName" value={data.lastName} onChange={onChangeHandler} required />
+          </div>
+          <input type="email" placeholder='Email address' name="email" value={data.email} onChange={onChangeHandler} required />
+          <input type="text" placeholder='Street/Address' name="street" value={data.street} onChange={onChangeHandler} required />
+          <div className="multi-fields">
+            <input type="text" placeholder='City' name="city" value={data.city} onChange={onChangeHandler} required />
+            <input type="text" placeholder='State' name="state" value={data.state} onChange={onChangeHandler} required />
+          </div>
+          <div className="multi-fields">
+            <input type="text" placeholder='Zip code' name="zipCode" value={data.zipCode} onChange={onChangeHandler} required />
+            <input type="text" placeholder='Country' name="country" value={data.country} onChange={onChangeHandler} required />
+          </div>
+          <input type="text" placeholder='Phone no.' name="phone" value={data.phone} onChange={onChangeHandler} required />
         </div>
-      ) : (
-        <form action="" className='place-order'>
-          <div className="place-order-left">
-            <p className="title">Delivery Information</p>
-            <div className="multi-fields">
-              <input type="text" placeholder='First name' value={firstName} onChange={(e) => { handleInputChange(e, setFirstName); updateFormComplete(); }} required />
-              <input type="text" placeholder='Last name' value={lastName} onChange={(e) => { handleInputChange(e, setLastName); updateFormComplete(); }} required />
-            </div>
-            <input type="email" placeholder='Email address' value={email} onChange={(e) => { handleInputChange(e, setEmail); updateFormComplete(); }} required />
-            <input type="text" placeholder='Street/Address' value={address} onChange={(e) => { handleInputChange(e, setAddress); updateFormComplete(); }} required />
-            <div className="multi-fields">
-              <input type="text" placeholder='City' value={city} onChange={(e) => { handleInputChange(e, setCity); updateFormComplete(); }} required />
-              <input type="text" placeholder='State' value={state} onChange={(e) => { handleInputChange(e, setState); updateFormComplete(); }} required />
-            </div>
-            <div className="multi-fields">
-              <input type="text" placeholder='Zip code' value={zipCode} onChange={(e) => { handleInputChange(e, setZipCode); updateFormComplete(); }} required />
-              <input type="text" placeholder='Country' value={country} onChange={(e) => { handleInputChange(e, setCountry); updateFormComplete(); }} required />
-            </div>
-            <input type="text" placeholder='Phone no.' value={phoneNumber} onChange={(e) => { handleInputChange(e, setPhoneNumber); updateFormComplete(); }} required />
-          </div>
-          <div className="place-order-right">
-            <div className="cart-total">
-              <h2>Cart Totals</h2>
-              <div>
-                <div className="cart-total-details">
-                  <p>Subtotal</p>
-                  <p>&#8377; {getTotalCartAmount()}</p>
-                </div>
-                <hr />
-                <div className="cart-total-details">
-                  <p>Delivery Fee</p>
-                  {/* <p>&#8377; {getTotalCartAmount() === 0 ? 0 : 2}</p> */}
-                  <p className="free">FREE</p>
-                </div>
-                <hr />
-                <div className="cart-total-details">
-                  <b>Total</b>
-                  <b>&#8377; {getTotalCartAmount() === 0 ? 0 : getTotalCartAmount()}</b>
-                </div>
+        <div className="place-order-right">
+          <div className="cart-total">
+            <h2>Cart Totals</h2>
+            <div>
+              <div className="cart-total-details">
+                <p>Subtotal</p>
+                <p>&#8377; {getTotalCartAmount()}</p>
               </div>
-              <button type="button" onClick={handlePayment} disabled={!formComplete}> PROCEED TO PAYMENT</button>
-            </div>
-            {paymentError && (
-              <div className="error-message">
-                <p>Payment was not successful. Please try again.</p>
+              <hr />
+              <div className="cart-total-details">
+                <p>Delivery Fee</p>
+                <p className="free">FREE</p>
               </div>
-            )}
+              <hr />
+              <div className="cart-total-details">
+                <b>Total</b>
+                <b>&#8377; {getTotalCartAmount()}</b>
+              </div>
+            </div>
+            <button type="button" onClick={placeOrder}>PLACE ORDER</button>
           </div>
-        </form>
-      )}
+        </div>
+      </form>
+      {error && <p className="error-message">{error}</p>}
     </div>
   );
 };

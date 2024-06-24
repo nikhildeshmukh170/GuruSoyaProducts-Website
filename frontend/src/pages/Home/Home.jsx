@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Home.css";
 import Header from "../../components/Header/Header";
-// import Banner from "../../components/Banner/Banner";
+import Banner from "../../components/Banner/Banner";
 import Itemslist from "../../components/itemslist/Itemslist";
 import CategorySection from "../../components/CategorySection/CategorySection";
 import ProductDisplay from "../../components/ProductDisplay/ProductDisplay";
@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div className="website">
       <Header />
-      {/* <Banner /> */}
+      <Banner />
       {/* <ProductCatagory /> */}
       <CategorySection category={category} setCategory={setCategory} />
       <Itemslist />

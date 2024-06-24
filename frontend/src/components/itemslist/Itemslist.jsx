@@ -1,42 +1,35 @@
 import React, { useContext, useState } from "react";
 import "./Itemlist.css";
-import { assets, item_list } from "../../assets/assets";
+import { assets } from "../../assets/assets";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronLeft,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { StoreContext } from "../../context/StoreContext";
 
 // Custom Arrow Component
-const CustomArrow = ({ className, style, onClick, icon }) => {
-  return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        display: "block",
-        borderStyle: "solid",
-        width: "25px",
-        height: "25px",
-        borderColor: "green",
-        borderRadius: "50%",
-      }}
-      onClick={onClick}
-    >
-      <FontAwesomeIcon icon={icon} className="custom-arrow-icon" />
-    </div>
-  );
-};
+const CustomArrow = ({ className, style, onClick, icon }) => (
+  <div
+    className={className}
+    style={{
+      ...style,
+      display: "block",
+      borderStyle: "solid",
+      width: "25px",
+      height: "25px",
+      borderColor: "green",
+      borderRadius: "50%",
+    }}
+    onClick={onClick}
+  >
+    <FontAwesomeIcon icon={icon} className="custom-arrow-icon" />
+  </div>
+);
 
-const Itemslist = ({ id, name, price, weight, discription, image }) => {
-
-  const { item_list } = useContext(StoreContext);
+const Itemslist = () => {
+  const { item_list, cartItems, addToCart, removeFromCart, url } = useContext(StoreContext);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const {cartItems, addToCart, removeFromCart, url} = useContext(StoreContext);
 
   const settings = {
     dots: false,
@@ -47,7 +40,7 @@ const Itemslist = ({ id, name, price, weight, discription, image }) => {
     initialSlide: 0,
     nextArrow: <CustomArrow icon={faChevronRight} />,
     prevArrow: <CustomArrow icon={faChevronLeft} />,
-    beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex), // Update current slide index
+    beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
     swipe: true,
     swipeToSlide: true,
     responsive: [
@@ -78,27 +71,6 @@ const Itemslist = ({ id, name, price, weight, discription, image }) => {
     ],
   };
 
-  // const handleAddToCart = (itemName) => {
-  //   setItemCounts((prevCounts) => ({
-  //     ...prevCounts,
-  //     [itemName]: (prevCounts[itemName] || 0) + 1,
-  //   }));
-  // };
-
-  // const handleIncrement = (itemName) => {
-  //   setItemCounts((prevCounts) => ({
-  //     ...prevCounts,
-  //     [itemName]: prevCounts[itemName] + 1,
-  //   }));
-  // };
-
-  // const handleDecrement = (itemName) => {
-  //   setItemCounts((prevCounts) => ({
-  //     ...prevCounts,
-  //     [itemName]: prevCounts[itemName] > 0 ? prevCounts[itemName] - 1 : 0,
-  //   }));
-  // };
-
   return (
     <div className="product_items">
       <div className="heading">
@@ -108,15 +80,19 @@ const Itemslist = ({ id, name, price, weight, discription, image }) => {
       </div>
       <div className="prod_card">
         <Slider {...settings} currentSlide={currentSlide}>
-          {item_list.map((item,index) => (
+          {item_list.map((item, index) => (
             <div key={index} className="prod_imgname">
               <div className="prod_img">
-                <img className="offerTag" src={assets.offerTag} alt=""/>
+                <img className="offerTag" src={assets.offerTag} alt="Offer Tag" />
                 <div className="offer_Content">
                   <p>30%</p>
                   <p>off</p>
                 </div>
-                <img className="prod_main_img" src={url+"/images/"+item.image} alt={item.name} />
+                <img
+                  className="prod_main_img"
+                  src={`${url}/images/${item.image}`}
+                  alt={item.name}
+                />
               </div>
               <div className="prod_content">
                 <p className="prod_name">{item.name}</p>
@@ -126,11 +102,7 @@ const Itemslist = ({ id, name, price, weight, discription, image }) => {
                     {!cartItems[item._id] ? (
                       <button className="cartbutton" onClick={() => addToCart(item._id)}>
                         Add To Cart
-                        <img
-                          className="add"
-                          src={assets.add_shopping_cart}
-                          alt=""
-                        />
+                        <img className="add" src={assets.add_shopping_cart} alt="Add" />
                       </button>
                     ) : (
                       <div className="item_counter">
@@ -152,7 +124,7 @@ const Itemslist = ({ id, name, price, weight, discription, image }) => {
                   </div>
                   <div className="rate">
                     <div className="rupee_sign">
-                      <img src={assets.currency_rupee} alt="" />
+                      <img src={assets.currency_rupee} alt="Rupee Sign" />
                     </div>
                     <div className="price_gm">
                       <p className="main_rate">{item.price}/-</p>

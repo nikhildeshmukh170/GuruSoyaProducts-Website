@@ -17,7 +17,8 @@ import profile_icon from "./user.png";
 import bag_icon from "./bag.png";
 import logout_icon from "./logout.png";
 import ratingStar from "./rating_starts.png";
-import offerTag from "./offer.png"
+import offerTag from "./offer.png";
+import FooterImg from "./Footer_img.png";
 
 import item_1 from "./cafe1.jpeg";
 import item_2 from "./roasted.jpeg";
@@ -54,7 +55,8 @@ export const assets = {
   bag_icon,
   logout_icon,
   ratingStar,
-  offerTag
+  offerTag,
+  FooterImg
 };
 
 export const item_list = [

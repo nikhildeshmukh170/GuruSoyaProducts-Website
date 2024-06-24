@@ -44,6 +44,23 @@ border-radius: 0px 0px 0px 0px;
     animation: fadeIn 2s;
 }
 
+.flow_line svg {
+    width: 100%;
+    height: auto;
+  }
+  
+  .flow_line path {
+    stroke-dasharray: 2500;
+    stroke-dashoffset: 2500;
+    animation: draw 10s forwards;
+  }
+  
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
 .main_img .all_prods{
     width: 950px;
     height: 550px;

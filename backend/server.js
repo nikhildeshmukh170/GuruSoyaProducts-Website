@@ -1,5 +1,5 @@
 import express from "express"
-import cros from "cors"
+import cors from "cors";
 import { connectDB } from "./config/db.js"
 import prodRouter from "./routes/prodRoute.js"
 import userRouter from "./routes/userRoute.js"
@@ -12,8 +12,8 @@ const app = express()
 const port = process.env.PORT || 4000; // Use the PORT environment variable
 
 //middleware
-app.use(express.json())
-app.use(cros())
+app.use(express.json());
+app.use(cors()); // Use the correct middleware name
 
 // db connection
 connectDB();

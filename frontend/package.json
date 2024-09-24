@@ -4,6 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
     "postinstall": "patch-package"
   },
   "dependencies": {
@@ -36,5 +39,10 @@
       "react": "^18.0.0",
       "react-dom": "^18.0.0"
     }
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "vite.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

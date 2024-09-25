@@ -1,4 +1,4 @@
-import prodModel from "../models/ProdModel.js";
+import prodModel from "../models/prodModel.js";
 import fs from 'fs'
 
 // add prod item

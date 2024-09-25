@@ -7,7 +7,7 @@ export const StoreContext = createContext(null)
 const StoreContextProvider = (props) => {
 
     const[cartItems, setCartItems] = useState({});
-    const url = "https://gurusoyaproducts-website.onrender.com/";
+    const url = "https://gurusoyaproducts-website.onrender.com";
     const[token,setToken] = useState("");
     const [item_list,setItemList] = useState([]);
     

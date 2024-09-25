@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
 
-  const url = "https://gurusoyaproducts-website.onrender.com/"
+  const url = "https://gurusoyaproducts-website.onrender.com"
 
   return (
     <div>

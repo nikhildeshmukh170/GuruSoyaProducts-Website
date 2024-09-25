@@ -10,6 +10,6 @@ node_modules/
 logs
 *.log
 
-uploads/
+# uploads/
 
 # git rm --cached

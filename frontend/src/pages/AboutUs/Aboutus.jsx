@@ -7,21 +7,21 @@ const AboutUs = () => {
   const teamMembers = [
     {
       name: 'Sadhana Deshmukh',
-      position: 'Founder',
+      position: 'Founder & Executive Director',
       quote: 'Quality is the heart of our business.',
       image: '/images/sadhana.jpg',
       details: 'With a passion for nutrition and healthy living, Sadhana started Guru Soya Products to provide nutritious alternatives to traditional food sources. Her commitment to quality has driven the company\'s vision for over two decades, ensuring that every product reflects the core values of health and sustainability.'
     },
     {
       name: 'Dipak Deshmukh',
-      position: 'CEO',
+      position: 'Chief Executive Officer (CEO)',
       quote: 'Innovation is key to our growth.',
       image: '/images/dipak.jpg',
       details: 'Dipak brings over 15 years of experience in the food industry. Under his leadership, the company has grown significantly and has been recognized for its innovation and commitment to health. He focuses on strategic planning and operational excellence to keep Guru Soya Products at the forefront of the industry.'
     },
     {
       name: 'Nikhil Deshmukh',
-      position: 'Tech Head',
+      position: 'Chief Technology Officer (CTO)',
       quote: 'Technology drives our efficiency.',
       image: '/images/nikhil.jpg',
       details: 'A tech enthusiast and expert in modern food manufacturing technologies, Nikhil focuses on integrating cutting-edge solutions into production processes. His work ensures that Guru Soya Products maintains high standards of quality while optimizing operations for sustainability and efficiency.'

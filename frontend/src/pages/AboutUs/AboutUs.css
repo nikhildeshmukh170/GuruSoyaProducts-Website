@@ -1,0 +1,214 @@
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+  
+  /* Background Animation */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #e6f7ff, #ffffff);
+    z-index: -1;
+    animation: gradientAnimation 15s ease infinite;
+  }
+  
+  @keyframes gradientAnimation {
+    0% { background: linear-gradient(135deg, #e6f7ff, #ffffff); }
+    50% { background: linear-gradient(135deg, #ffffff, #e6f7ff); }
+    100% { background: linear-gradient(135deg, #e6f7ff, #ffffff); }
+  }
+  
+  /* About Us Container */
+  .about-us {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centering the content */
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    background-image: url('/images/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 100px 20px;
+    color: black;
+  }
+  
+  .hero-section h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+  
+  .hero-section p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  .hero-section button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Sections */
+  .journey-section,
+  .vision-section,
+  .values-section,
+  .team-section,
+  .future-section {
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #28a745;
+  }
+  
+  /* Timeline Styles */
+  .history-timeline {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the timeline events */
+  }
+  
+  .timeline-event {
+    margin: 20px 0;
+    max-width: 600px; /* Limit width for better readability */
+  }
+  
+  .event-year {
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+  
+  /* Team Section */
+  .team-members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .team-member {
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .member-card {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 250px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s;
+  }
+  
+  .member-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .team-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 2px solid #28a745;
+  }
+  
+  .member-info {
+    padding: 15px;
+  }
+  
+  .team-name {
+    font-size: 1.5em;
+    margin: 10px 0;
+  }
+  
+  .team-role {
+    font-size: 1.1em;
+    color: #555;
+  }
+  
+  .team-quote {
+    font-style: italic;
+    color: #777;
+  }
+  
+  /* Modal Styles */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .modal-role {
+    font-weight: bold;
+  }
+  
+  .modal-details {
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .modal-close {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  

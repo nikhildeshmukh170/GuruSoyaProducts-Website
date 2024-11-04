@@ -57,13 +57,13 @@ const Itemslist = () => {
       <div className="product-card-container">
         <Slider {...settings} currentSlide={currentSlide}>
           {item_list.map((item, index) => (
-            <Link key={index} to={`/product/${item._id}`} className="product-card">
-              <div className="product-image-wrapper">
+            <div key={index} className="product-card">
+              <Link to={`/product/${item._id}`} className="product-image-wrapper">
                 <img className="product-image" src={`${url}/images/${item.image}`} alt={item.name} />
                 <div className="overlay">
                   <span>30% OFF</span>
                 </div>
-              </div>
+              </Link>
               <div className="product-details">
                 <h3 className="product-name">{item.name}</h3>
                 <p className="product-description">{item.discription}</p>
@@ -85,7 +85,7 @@ const Itemslist = () => {
                   </div>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </Slider>
       </div>

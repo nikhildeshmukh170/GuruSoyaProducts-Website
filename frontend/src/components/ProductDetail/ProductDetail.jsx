@@ -10,7 +10,7 @@ const ProductDetails = () => {
   const [product, setProduct] = useState(null);
 
   // Define your URL for images
-  const url = "http://localhost:5173/images"; // Update this to your actual image base URL
+  const url = "http://gurusoyaproducts-website.onrender.com/images"; // Update this to your actual image base URL
 
   useEffect(() => {
     console.log("Product ID from URL:", productId);

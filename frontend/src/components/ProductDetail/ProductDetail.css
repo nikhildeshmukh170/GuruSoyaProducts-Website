@@ -1,0 +1,150 @@
+/* Main container for product details */
+.product-details-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Side-by-side layout */
+    gap: 30px; /* Space between image and details */
+    padding: 20px; /* Padding for the main container */
+    max-width: 1200px; /* Max width for larger screens */
+    margin: auto; /* Center the container */
+  }
+  
+  /* Product image styling */
+  .product-image {
+    width: 100%; /* Full width */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    object-fit: cover; /* Maintain aspect ratio */
+  }
+  
+  /* Thumbnail container for product images */
+  .thumbnail-container {
+    display: flex; /* Row layout for thumbnails */
+    gap: 10px; /* Space between thumbnails */
+    margin-top: 10px; /* Space above thumbnails */
+  }
+  
+  /* Individual thumbnail styling */
+  .thumbnail {
+    width: 80px; /* Fixed width for thumbnails */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for thumbnails */
+    overflow: hidden; /* Clip any overflow */
+    transition: transform 0.2s; /* Scale effect on hover */
+  }
+  
+  /* Hover effect for thumbnails */
+  .thumbnail:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+  }
+  
+  /* Product title styling */
+  .product-title {
+    font-family: 'Helvetica Neue', sans-serif; /* Modern font */
+    font-size: 2rem; /* Font size for title */
+    color: #1a1a1a; /* Darker color for readability */
+    margin: 0; /* Remove default margin */
+  }
+  
+  /* Product description styling */
+  .product-description {
+    font-size: 1rem; /* Standard font size */
+    color: #666; /* Subtle color for description */
+    line-height: 1.6; /* Improved readability */
+    margin: 10px 0; /* Margin around the description */
+  }
+  
+  /* Price styling */
+  .product-price {
+    font-size: 1.5rem; /* Larger font size for price */
+    font-weight: bold; /* Bold for emphasis */
+    color: #e91e63; /* Vibrant color for prices */
+    margin-top: 10px; /* Space above price */
+  }
+  
+  /* Weight styling */
+  .product-weight {
+    font-size: 1rem; /* Standard font size for weight */
+    color: #999; /* Subtle color */
+  }
+  
+  /* Container for product actions */
+  .product-actions {
+    margin-top: 20px; /* Space above actions */
+    display: flex; /* Flex layout for actions */
+    align-items: center; /* Center items vertically */
+  }
+  
+  /* Button styling */
+  .add-to-cart-btn,
+  .favorite-btn {
+    background-color: #28a745; /* Green for add to cart */
+    color: #fff; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 12px 20px; /* Padding for buttons */
+    font-size: 1rem; /* Font size for buttons */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+    margin-right: 10px; /* Space between buttons */
+  }
+  
+  /* Hover effects for buttons */
+  .add-to-cart-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+  }
+  
+  .favorite-btn {
+    background-color: #ffcc00; /* Yellow for favorites */
+  }
+  
+  .favorite-btn:hover {
+    background-color: #e6b800; /* Darker yellow on hover */
+  }
+  
+  /* Reviews section styling */
+  .product-reviews {
+    border-top: 1px solid #ddd; /* Separator for reviews */
+    padding-top: 20px; /* Padding above reviews */
+    margin-top: 30px; /* Margin above reviews */
+  }
+  
+  /* Individual review styling */
+  .review {
+    display: flex; /* Flex layout for review items */
+    align-items: center; /* Center items vertically */
+    gap: 15px; /* Space between star ratings and text */
+    margin-bottom: 15px; /* Space below each review */
+  }
+  
+  /* Star rating styling */
+  .star-rating {
+    color: #ff9800; /* Gold color for stars */
+  }
+  
+  /* Related products section */
+  .related-products {
+    margin-top: 40px; /* Space above related products */
+    padding: 20px; /* Padding for the related products container */
+    background-color: #f7f7f7; /* Light background for contrast */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  }
+  
+  /* Heading for related products */
+  .related-products h2 {
+    font-size: 1.5rem; /* Font size for heading */
+    margin-bottom: 20px; /* Space below heading */
+  }
+  
+  /* Media query for responsive design */
+  @media (max-width: 768px) {
+    .product-details-container {
+      grid-template-columns: 1fr; /* Stack items vertically on smaller screens */
+    }
+  
+    .thumbnail {
+      width: 60px; /* Smaller thumbnails on mobile */
+    }
+  }
+  

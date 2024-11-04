@@ -7,23 +7,27 @@ import "slick-carousel/slick/slick-theme.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { StoreContext } from "../../context/StoreContext";
+import { Link } from "react-router-dom";
 
-// Custom Arrow Component
 const CustomArrow = ({ className, style, onClick, icon }) => (
   <div
     className={className}
     style={{
       ...style,
-      display: "block",
-      borderStyle: "solid",
-      width: "25px",
-      height: "25px",
-      borderColor: "green",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: "#1a6f43",
+      color: "#fff",
       borderRadius: "50%",
+      width: "40px",
+      height: "40px",
+      boxShadow: "0 4px 10px rgba(0, 0, 0, 0.15)",
+      cursor: "pointer",
     }}
     onClick={onClick}
   >
-    <FontAwesomeIcon icon={icon} className="custom-arrow-icon" />
+    <FontAwesomeIcon icon={icon} />
   </div>
 );
 
@@ -35,105 +39,53 @@ const Itemslist = () => {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 3.2,
+    slidesToShow: 3,
     slidesToScroll: 1,
-    initialSlide: 0,
     nextArrow: <CustomArrow icon={faChevronRight} />,
     prevArrow: <CustomArrow icon={faChevronLeft} />,
     beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
-    swipe: true,
-    swipeToSlide: true,
     responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
+      { breakpoint: 1024, settings: { slidesToShow: 3 } },
+      { breakpoint: 768, settings: { slidesToShow: 2 } },
+      { breakpoint: 480, settings: { slidesToShow: 1 } },
     ],
   };
 
   return (
-    <div className="product_items">
-      <div className="heading">
-        <p>
-          Purchase Today: <br /> Amplify Your Journey!
-        </p>
-      </div>
-      <div className="prod_card">
+    <div className="product-items">
+      <h2 className="heading">Shop Your Favorites Today!</h2>
+      <div className="product-card-container">
         <Slider {...settings} currentSlide={currentSlide}>
           {item_list.map((item, index) => (
-            <div key={index} className="prod_imgname">
-              <div className="prod_img">
-                <img className="offerTag" src={assets.offerTag} alt="Offer Tag" />
-                <div className="offer_Content">
-                  <p>30%</p>
-                  <p>off</p>
+            <Link key={index} to={`/product/${item._id}`} className="product-card">
+              <div className="product-image-wrapper">
+                <img className="product-image" src={`${url}/images/${item.image}`} alt={item.name} />
+                <div className="overlay">
+                  <span>30% OFF</span>
                 </div>
-                <img
-                  className="prod_main_img"
-                  src={`${url}/images/${item.image}`}
-                  alt={item.name}
-                />
               </div>
-              <div className="prod_content">
-                <p className="prod_name">{item.name}</p>
-                <p className="prod_discri">{item.discription}</p>
-                <div className="button">
-                  <div className="addtocart">
-                    {!cartItems[item._id] ? (
-                      <button className="cartbutton" onClick={() => addToCart(item._id)}>
-                        Add To Cart
-                        <img className="add" src={assets.add_shopping_cart} alt="Add" />
-                      </button>
-                    ) : (
-                      <div className="item_counter">
-                        <button
-                          className="decrement-button"
-                          onClick={() => removeFromCart(item._id)}
-                        >
-                          -
-                        </button>
-                        <p>{cartItems[item._id]}</p>
-                        <button
-                          className="increment-button"
-                          onClick={() => addToCart(item._id)}
-                        >
-                          +
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                  <div className="rate">
-                    <div className="rupee_sign">
-                      <img src={assets.currency_rupee} alt="Rupee Sign" />
+              <div className="product-details">
+                <h3 className="product-name">{item.name}</h3>
+                <p className="product-description">{item.discription}</p>
+                <div className="button-container">
+                  {!cartItems[item._id] ? (
+                    <button className="cart-button" onClick={() => addToCart(item._id)}>
+                      Add To Cart <img src={assets.add_shopping_cart} alt="Add" />
+                    </button>
+                  ) : (
+                    <div className="item-counter">
+                      <button onClick={() => removeFromCart(item._id)}>-</button>
+                      <span>{cartItems[item._id]}</span>
+                      <button onClick={() => addToCart(item._id)}>+</button>
                     </div>
-                    <div className="price_gm">
-                      <p className="main_rate">{item.price}/-</p>
-                      <h3>({item.weight}gm)</h3>
-                    </div>
+                  )}
+                  <div className="price-container">
+                    <span className="price">₹{item.price}</span>
+                    <span className="weight">({item.weight}gm)</span>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </Slider>
       </div>

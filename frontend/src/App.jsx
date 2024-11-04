@@ -11,6 +11,8 @@ import ContactUs from "./pages/ContactUs/ContactUs";
 import Login from "./components/Login/Login";
 import Preloader from './components/Preloader/Preloader';
 import PaymentSuccess from "./pages/PaymentSuccess/PaymentSuccess";
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 // import './App.css'; // Assuming you have some global styles
 
 const App = () => {

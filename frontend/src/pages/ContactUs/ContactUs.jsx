@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './CrazyContactUs.css';
+import './ContactUs.css';
 import { ReactComponent as Blob } from './blob.svg'; // Import an SVG blob shape
 
 const ContactUs = () => {

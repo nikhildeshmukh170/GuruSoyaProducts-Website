@@ -1,10 +1,10 @@
 /* General Styles for Return Policy Page */
-body {
-    background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%); /* Gradient background */
+/* body {
+    background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-  }
+  } */
   
   .return-policy {
     max-width: 800px;

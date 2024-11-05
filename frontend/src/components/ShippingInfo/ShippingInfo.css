@@ -1,10 +1,10 @@
 /* General Styles for Shipping Info Page */
-body {
-    background: linear-gradient(135deg, #c2e9fb 0%, #a1c4fd 100%); /* Gradient background */
+/* body {
+    background: linear-gradient(135deg, #c2e9fb 0%, #a1c4fd 100%);
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-  }
+  } */
   
   .shipping-info {
     max-width: 800px;

@@ -1,10 +1,10 @@
 /* General Styles for Privacy Policy Page */
-body {
-    background: linear-gradient(135deg, #e8f0fe 0%, #f0e8fe 100%); /* Gradient background */
+/* body {
+    background: linear-gradient(135deg, #e8f0fe 0%, #f0e8fe 100%);
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-  }
+  } */
   
   .privacy-policy {
     max-width: 800px;

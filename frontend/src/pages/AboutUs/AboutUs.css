@@ -1,215 +1,363 @@
-/* General Styles */
+/* Reset and General Styles */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  body {
-    overflow-x: hidden; /* Prevent horizontal scroll */
-  }
-  
-  /* Background Animation */
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #e6f7ff, #ffffff);
-    z-index: -1;
-    animation: gradientAnimation 15s ease infinite;
-  }
-  
-  @keyframes gradientAnimation {
-    0% { background: linear-gradient(135deg, #e6f7ff, #ffffff); }
-    50% { background: linear-gradient(135deg, #ffffff, #e6f7ff); }
-    100% { background: linear-gradient(135deg, #e6f7ff, #ffffff); }
-  }
-  
-  /* About Us Container */
-  .about-us {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto; /* Centering the content */
-  }
-  
-  /* Hero Section */
-  .hero-section {
-    background-image: url('/images/hero-background.jpg');
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    padding: 100px 20px;
-    color: black;
-  }
-  
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  background: linear-gradient(145deg, #f0f4f8, #ffffff);
+}
+
+/* Background Animation */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #e0f7e9, #ffffff);
+  z-index: -1;
+  animation: backgroundShift 15s ease-in-out infinite;
+}
+
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* About Us Section */
+.about-us {
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 120px 20px;
+  color: #ffffff;
+  background: linear-gradient(160deg, #28a745, #4cbf4e);
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  margin-bottom: 40px;
+  transform: scale(1.05);
+  animation: heroSlideIn 2s ease-out;
+}
+
+@keyframes heroSlideIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.hero-section h1 {
+  font-size: 3.5em;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+}
+
+.hero-section p {
+  font-size: 1.8em;
+  margin-bottom: 25px;
+}
+
+.hero-section button {
+  background: linear-gradient(90deg, #4cbf4e, #28a745);
+  color: #fff;
+  padding: 12px 28px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.hero-section button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Section Title */
+.section-title {
+  font-size: 2.8em;
+  margin-bottom: 30px;
+  color: #28a745;
+  text-align: center;
+  position: relative;
+}
+
+.section-title::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  width: 60px;
+  height: 4px;
+  background: #28a745;
+  transform: translateX(-50%);
+}
+
+/* Timeline */
+.history-timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.timeline-event {
+  margin: 20px 0;
+  max-width: 650px;
+  padding: 20px;
+  border-left: 5px solid #28a745;
+  background: #f7fcf9;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.2s ease-in-out;
+  overflow: hidden;
+  color: #444;
+}
+
+.timeline-event:hover {
+  transform: scale(1.02);
+}
+
+.timeline-event::before {
+  content: "📅";
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  font-size: 2em;
+  color: rgba(40, 167, 69, 0.2);
+  animation: rotateIcon 3s linear infinite;
+}
+
+@keyframes rotateIcon {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.event-year {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #28a745;
+  margin-bottom: 10px;
+}
+
+.event-description {
+  font-size: 1.1em;
+}
+
+/* Values Section */
+.values-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.value-item {
+  background: #e9fbe9;
+  color: #28a745;
+  padding: 15px 25px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1.2em;
+  transition: background 0.3s, transform 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.value-item:hover {
+  background: #d4f3d4;
+  transform: scale(1.05);
+}
+
+/* Team Members */
+.team-section {
+  margin: 40px 0;
+}
+
+.team-members {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.team-member {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+}
+
+.member-card {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  width: 280px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+}
+
+.member-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.team-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 4px solid #28a745;
+}
+
+.member-info {
+  padding: 20px;
+}
+
+.team-name {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.team-role {
+  font-size: 1em;
+  color: #888;
+  margin: 5px 0 15px;
+}
+
+.team-quote {
+  font-style: italic;
+  color: #444;
+  margin-top: 10px;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: showModal 0.5s forwards;
+}
+
+@keyframes showModal {
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: auto;
+  position: relative;
+}
+
+.modal-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.modal-role {
+  font-size: 18px;
+  color: gray;
+}
+
+.modal-quote {
+  font-style: italic;
+  margin: 10px 0;
+}
+
+.modal-details {
+  margin: 10px 0;
+}
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-link {
+  margin-right: 10px;
+  color: #0073e6; /* or your preferred color */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.social-link:hover {
+  text-decoration: underline;
+}
+
+
+.modal-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 15px auto;
+  border: 3px solid #28a745;
+}
+
+.modal-close {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 15px;
+}
+
+.modal-close:hover {
+  background: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .hero-section h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
+      font-size: 2.5em;
   }
-  
+
   .hero-section p {
-    font-size: 1.5em;
-    margin-bottom: 20px;
+      font-size: 1.2em;
   }
-  
-  .hero-section button {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 20px;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  /* Sections */
-  .journey-section,
-  .vision-section,
-  .values-section,
-  .team-section,
-  .future-section {
-    padding: 50px 20px;
-    text-align: center;
-  }
-  
+
   .section-title {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #28a745;
+      font-size: 2em;
   }
-  
-  /* Timeline Styles */
-  .history-timeline {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the timeline events */
-  }
-  
-  .timeline-event {
-    margin: 20px 0;
-    max-width: 600px; /* Limit width for better readability */
-  }
-  
-  .event-year {
-    font-weight: bold;
-    font-size: 1.5em;
-  }
-  
-  /* Team Section */
+
   .team-members {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
+      flex-direction: column;
+      align-items: center;
   }
-  
-  .team-member {
-    cursor: pointer;
-    transition: transform 0.3s;
-  }
-  
-  .member-card {
-    background: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 250px;
-    text-align: center;
-    position: relative;
-    transition: transform 0.3s;
-  }
-  
-  .member-card:hover {
-    transform: translateY(-10px);
-  }
-  
-  .team-image {
-    width: 100%;
-    height: 150px;
-    object-fit: contain;
-    border-bottom: 2px solid #28a745;
-  }
-  
-  .member-info {
-    padding: 15px;
-    
-  }
-  
-  .team-name {
-    font-size: 1.5em;
-    margin: 10px 0;
-  }
-  
-  .team-role {
-    font-size: 1.1em;
-    color: #28a745;
-  }
-  
-  .team-quote {
-    font-style: italic;
-    color: #777;
-  }
-  
-  /* Modal Styles */
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
+
   .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    width: 300px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      width: 85%;
   }
-  
-  .modal-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-  
-  .modal-role {
-    font-weight: bold;
-  }
-  
-  .modal-details {
-    margin: 10px 0;
-    color: #333;
-  }
-  
-  .modal-close {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  /* Footer */
-  .footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-  }
-  
+}
+

@@ -51,7 +51,7 @@ const Footer = () => {
               </div>
             </a>
             <a
-              href="https://x.com/GuruSoya94664"
+              href="https://www.linkedin.com/company/guru-soya-products/"
               target="_blank"
               rel="noopener noreferrer"
             >

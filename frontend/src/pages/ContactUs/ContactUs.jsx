@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './ContactUs.css';
-import { ReactComponent as Blob } from './blob.svg'; // Import an SVG blob shape
+import Blob from './blob.svg';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -72,7 +72,7 @@ const ContactUs = () => {
           <button type="submit" className="submit-button">Send It! 🚀</button>
         </form>
       </div>
-      <Blob className="blob" />
+      <img src={Blob} alt="Blob Shape" className='blob' />
     </div>
   );
 };

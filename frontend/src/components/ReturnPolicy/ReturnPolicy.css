@@ -1,0 +1,83 @@
+/* General Styles for Return Policy Page */
+body {
+    background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%); /* Gradient background */
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .return-policy {
+    max-width: 800px;
+    margin: 40px auto; /* Centered with margin */
+    padding: 40px; /* Added padding for spacing */
+    background-color: #ffffff; /* White background for content */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .return-policy h2 {
+    font-size: 2rem; /* Large size for main heading */
+    color: #3c7a4d; /* Green color for heading */
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .return-policy p {
+    font-size: 1rem; /* Standard font size */
+    line-height: 1.5; /* Increased line height for readability */
+    color: #555; /* Darker text color for readability */
+    margin-bottom: 15px;
+    padding: 0 10px; /* Padding for better readability */
+  }
+  
+  .policy-details {
+    margin-top: 20px;
+    padding: 15px; /* Padding for detail section */
+    border: 1px solid #eaeaea; /* Simple border for separation */
+    border-radius: 8px; /* Consistent corner rounding */
+    background-color: #f9f9f9; /* Light background for details */
+  }
+  
+  .policy-details h3 {
+    font-size: 1.25rem; /* Slightly larger font for subheadings */
+    color: #2c2c2c; /* Darker color for subheading */
+    margin-bottom: 8px; /* Margin for spacing */
+  }
+  
+  .policy-details ul {
+    margin-left: 20px; /* Indent for lists */
+    color: #444; /* Darker color for list items */
+  }
+  
+  .policy-details li {
+    margin-bottom: 10px; /* Spacing between list items */
+  }
+  
+  /* Link styling */
+  .return-policy a {
+    color: #3c7a4d; /* Link color */
+    text-decoration: none; /* No underline */
+    font-weight: bold; /* Bold links */
+  }
+  
+  .return-policy a:hover {
+    text-decoration: underline; /* Underline on hover for better UX */
+    color: #2a5a38; /* Darker shade on hover */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .return-policy {
+      padding: 20px; /* Adjusted padding for small screens */
+    }
+    
+    .return-policy h2 {
+      font-size: 1.5rem; /* Smaller heading on mobile */
+    }
+    
+    .policy-details h3 {
+      font-size: 1.1rem; /* Smaller subheading on mobile */
+    }
+  }
+  

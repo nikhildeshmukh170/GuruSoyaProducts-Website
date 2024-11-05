@@ -13,6 +13,10 @@ import Preloader from './components/Preloader/Preloader';
 import PaymentSuccess from "./pages/PaymentSuccess/PaymentSuccess";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import ProductDetail from "./components/ProductDetail/ProductDetail";
+import Faqs from "./components/Faqs/Faqs";
+import ShippingInfo from "./components/ShippingInfo/ShippingInfo";
+import ReturnPolicy from "./components/ReturnPolicy/ReturnPolicy";
+import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 
 // import './App.css'; // Assuming you have some global styles
 
@@ -47,6 +51,10 @@ const App = () => {
                 <Route path="/place-order" element={<PlaceOrder />} />
                 <Route path="/payment-success" element={<PaymentSuccess />} />
                 <Route path="/product/:productId" element={<ProductDetail />} />
+                <Route path="/faq" element={<Faqs />} />
+                <Route path="/shipping" element={<ShippingInfo />} />
+                <Route path="/returns" element={<ReturnPolicy />} />
+                <Route path="/privacy" element={<PrivacyPolicy />} />
               </Routes>
             </div>
             <Footer />

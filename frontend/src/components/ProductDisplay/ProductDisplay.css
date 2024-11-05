@@ -1,7 +1,10 @@
 .ProductDisplay {
-    margin-top: 30px;
-    margin-left: 90px;
-    margin-right: 70px;
+    margin: 40px auto;
+    max-width: 1200px; /* Maximum width for the display */
+    padding: 20px; /* Inner padding */
+    background-color: #f9f9f9; /* Light background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .ProductDisplay h2 {
@@ -18,4 +21,12 @@
     max-height: 600px; /* Adjust this height to fit two rows as needed */
     overflow-y: auto;  /* Enables vertical scrolling */
     padding-right: 20px; /* Optional: adds padding to avoid scrollbar overlapping content */
+}
+
+.no-products {
+    grid-column: 1 / -1; /* Span across all columns */
+    text-align: center; /* Center the text */
+    font-size: 1.5rem; /* Larger font for emphasis */
+    color: #555; /* Neutral color */
+    margin-top: 50px; /* Spacing above message */
 }

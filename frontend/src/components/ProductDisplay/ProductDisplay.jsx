@@ -8,12 +8,23 @@ const ProductDisplay = ({ category }) => {
 
   return (
     <div className="ProductDisplay" id="ProductDisplay">
-      <h2>All Products</h2>
+      <h2>{category ? `${category} Products` : "All Products"}</h2>
       <div className="prod-display-list">
-        {item_list.map((item, index) => {
-          return(
-          <ProductItem key={index} id={item._id} name={item.name} price={item.price} weight={item.weight} discription={item.discription} image={item.image}/>
-        )})}
+        {item_list.length > 0 ? (
+          item_list.map((item) => (
+            <ProductItem
+              key={item._id}
+              id={item._id}
+              name={item.name}
+              price={item.price}
+              weight={item.weight}
+              description={item.description}
+              image={item.image}
+            />
+          ))
+        ) : (
+          <p className="no-products">No products available in this category.</p>
+        )}
       </div>
     </div>
   );

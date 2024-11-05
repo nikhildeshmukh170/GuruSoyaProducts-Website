@@ -24,7 +24,7 @@ const Footer = () => {
           </p>
           <div className="social_media">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/gurusoyaproductsofficial/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -33,7 +33,7 @@ const Footer = () => {
               </div>
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/gurusoyaproducts/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -42,12 +42,21 @@ const Footer = () => {
               </div>
             </a>
             <a
-              href="https://twitter.com"
+              href="https://x.com/GuruSoya94664"
               target="_blank"
               rel="noopener noreferrer"
             >
               <div className="social_icon twitter">
                 <i className="fab fa-twitter"></i>
+              </div>
+            </a>
+            <a
+              href="https://x.com/GuruSoya94664"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="social_icon linkedin">
+                <i className="fab fa-linkedin"></i>
               </div>
             </a>
           </div>

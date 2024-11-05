@@ -25,9 +25,14 @@
 
 .logo_section img {
     width: 100px;
-    zoom: 100%;
     margin-bottom: 15px;
     filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.4));
+    transition: transform 0.3s ease; /* Smooth transition for the zoom */
+    transform: scale(2);
+}
+
+.logo_section img:hover {
+    transform: scale(1.7); /* Scale up by 10% on hover */
 }
 
 .tagline {
@@ -141,6 +146,10 @@
 
 .social_icon.twitter {
     background: linear-gradient(135deg, #1DA1F2, #0d8bd7);
+}
+
+.social_icon.linkedin {
+    background: linear-gradient(135deg, #1d60f2, #051090);
 }
 
 .social_icon:hover {

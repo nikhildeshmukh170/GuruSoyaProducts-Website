@@ -14,7 +14,7 @@
 
 .prod-display-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
     margin-top: 30px;
     gap: 60px;
     row-gap: 80px;
@@ -23,10 +23,42 @@
     padding-right: 20px; /* Optional: adds padding to avoid scrollbar overlapping content */
 }
 
-.no-products {
-    grid-column: 1 / -1; /* Span across all columns */
-    text-align: center; /* Center the text */
-    font-size: 1.5rem; /* Larger font for emphasis */
-    color: #555; /* Neutral color */
-    margin-top: 50px; /* Spacing above message */
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .ProductDisplay {
+        padding: 10px; /* Reduce padding for smaller screens */
+        margin: 20px; /* Adjust margin for better fit */
+    }
+
+    .ProductDisplay h2 {
+        font-size: 20px; /* Smaller font size for titles on mobile */
+    }
+
+    .prod-display-list {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Fewer columns for smaller screens */
+        gap: 30px; /* Reduce gap between items */
+        row-gap: 40px; /* Reduce row gap */
+        max-height: 400px; /* Adjust max height for mobile */
+    }
+
+    .no-products {
+        font-size: 1.2rem; /* Smaller font size for no products message */
+        margin-top: 30px; /* Reduced margin for mobile */
+    }
+}
+
+/* Additional adjustments for very small screens */
+@media (max-width: 480px) {
+    .prod-display-list {
+        grid-template-columns: 1fr; /* One column for very small screens */
+        padding-right: 0; /* Remove padding for smaller devices */
+    }
+
+    .ProductDisplay {
+        margin: 10px; /* Further reduce margin for compactness */
+    }
+
+    .ProductDisplay h2 {
+        font-size: 18px; /* Further reduce font size for titles */
+    }
 }

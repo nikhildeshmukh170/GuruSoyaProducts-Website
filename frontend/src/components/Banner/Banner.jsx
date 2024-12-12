@@ -8,7 +8,7 @@ const Banner = () => {
     <div className="banner">
       <div id="infinite" class="content-slider">
         <div class="container content-barrier">
-          <ul class="content">
+          <ul class="contentbanner">
             <li class="prod-name"><img src={assets.coffee_cup} alt="" /><div className="name">Soya Cafe <span>Nutrient</span></div></li>
             <li class="prod-name"><img src={assets.nuts} alt="" /><div className="name">Soya Roasted <span>Namkeen</span></div></li>
             <li class="prod-name"><img src={assets.flour} alt="" /><div className="name">Soya Flour<span>Protien</span></div></li>

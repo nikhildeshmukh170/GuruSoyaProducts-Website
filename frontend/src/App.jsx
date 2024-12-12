@@ -41,14 +41,14 @@ const App = () => {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={`https://gurusoyaproducts.com${location.pathname}`} />
-        <meta property="og:image" content="https://gurusoyaproducts.com/logo.png" />
+        <meta property="og:image" content="https://gurusoyaproducts.com/assets/logo.png" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card Metadata */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content="https://gurusoyaproducts.com/logo.png" />
+        <meta name="twitter:image" content="https://gurusoyaproducts.com/assets/logo.png" />
         
         {/* Structured Data (JSON-LD) */}
         <script
@@ -59,11 +59,11 @@ const App = () => {
               "@type": "Organization",
               "name": "Guru Soya Products",
               "url": "https://gurusoyaproducts.com",
-              "logo": "https://gurusoyaproducts.com/logo.png",
+              "logo": "https://gurusoyaproducts.com/assets/logo.png",
               "sameAs": [
-                "https://www.facebook.com/GuruSoyaProducts",
-                "https://twitter.com/GuruSoyaProducts",
-                "https://www.instagram.com/GuruSoyaProducts"
+                "https://www.facebook.com/gurusoyaproductsofficial/",
+                "https://www.instagram.com/gurusoyaproducts/",
+                "https://x.com/GuruSoya94664"
               ]
             })
           }}

@@ -21,7 +21,7 @@ div.content-barrier {
   position: relative;
 }
 
-ul.content {
+ul.contentbanner {
   display: flex;
   height: 100%;
 }
@@ -91,7 +91,7 @@ li.prod-name {
     background: linear-gradient(to left, #87a330, rgba(255, 255, 255, 0) 100%);
   }
 
-  ul.content {
+  ul.contentbanner {
     width: calc(180px * 24);
     li.prod-name {
       gap: 20px;
@@ -140,13 +140,13 @@ li.prod-name {
     font-size: 24px; /* Smaller font size for product names */
   }
 
-  ul.content {
-    flex-direction: column; /* Stack items vertically on mobile */
+  ul.contentbanner {
+    /* flex-direction: row; Stack items vertically on mobile */
     align-items: center; /* Center items */
   }
 
   #infinite div.content-barrier {
-    ul.content {
+    ul.contentbanner {
       width: 100%; /* Full width for mobile */
       li.prod-name {
         width: 100%; /* Full width for product names */

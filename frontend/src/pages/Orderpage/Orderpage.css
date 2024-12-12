@@ -1,0 +1,31 @@
+.order-page {
+    padding: 20px;
+  }
+  
+  .order-page h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .order-details p {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+  
+  .order-details ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .order-details ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .order-total {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  

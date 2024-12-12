@@ -1,13 +1,12 @@
 .payment-success {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
-  .payment-success h1 {
-    color: green;
-  }
-  
-  .payment-success p {
-    font-size: 18px;
-  }
-  
+  text-align: center;
+  margin-top: 50px;
+}
+
+.payment-success h1 {
+  color: green;
+}
+
+.payment-success p {
+  font-size: 18px;
+}

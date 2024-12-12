@@ -1,6 +1,7 @@
-import orderModel from "../models/orderModel.js";
-import userModel from "../models/userModels.js";
-import Razorpay from "razorpay";
+import crypto from 'crypto';
+import Razorpay from 'razorpay';
+import orderModel from '../models/orderModel.js';
+import userModel from '../models/userModels.js';
 
 const razorpay = new Razorpay({
   key_id: process.env.RAZORPAY_KEY_ID,
@@ -56,4 +57,36 @@ const placeOrder = async (req, res) => {
   }
 };
 
-export { placeOrder };
+// Verification of Razorpay payment
+const verifyPayment = async (req, res) => {
+  try {
+    const { razorpayOrderId, razorpayPaymentId, razorpaySignature } = req.body;
+
+    // Fetch the Razorpay order
+    const order = await razorpay.orders.fetch(razorpayOrderId);
+    
+    // Generate the signature
+    const hmac = crypto.createHmac('sha256', process.env.RAZORPAY_KEY_SECRET);
+    hmac.update(razorpayOrderId + "|" + razorpayPaymentId);
+    const generatedSignature = hmac.digest('hex');
+    
+    // Verify the signature
+    if (generatedSignature === razorpaySignature) {
+      // Payment is successful, now update the order status
+      const updatedOrder = await orderModel.findByIdAndUpdate(
+        order.receipt, // Receipt is stored as order ID
+        { status: 'paid', payment: true },
+        { new: true }
+      );
+      console.log('Order successfully updated:', updatedOrder);
+      res.json({ success: true, message: 'Payment verified successfully' });
+    } else {
+      res.status(400).json({ success: false, message: 'Payment verification failed' });
+    }
+  } catch (error) {
+    console.error('Error verifying payment:', error);
+    res.status(500).json({ success: false, message: 'Server Error', error: error.message });
+  }
+};
+
+export { placeOrder, verifyPayment };

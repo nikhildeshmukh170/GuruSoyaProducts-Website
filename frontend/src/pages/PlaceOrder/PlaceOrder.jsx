@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
 import './PlaceOrder.css';
 import axios from 'axios';
-import logo from '../../assets/BL_bg-Logo.png';
+import logo from '../../assets/BL_bg-Logo.png'; // Update this with your logo path
 import { StoreContext } from "../../context/StoreContext";
+import { useNavigate } from 'react-router-dom';
 
 const PlaceOrder = () => {
   const { getTotalCartAmount, token, item_list, cartItems, url } = useContext(StoreContext);
@@ -18,17 +19,18 @@ const PlaceOrder = () => {
     phone: ''
   });
   const [error, setError] = useState(null);
+  const navigate = useNavigate();  // To navigate to PaymentSuccess page after successful payment
 
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
     setData(prevData => ({ ...prevData, [name]: value }));
-  }
+  };
 
   const placeOrder = async (event) => {
     event.preventDefault();
     setError(null); // Clear any previous errors
 
-    const totalAmount = getTotalCartAmount() === 0 ? 0 : getTotalCartAmount();
+    const totalAmount = getTotalCartAmount();
 
     // Check if the cart total is zero
     if (totalAmount === 0) {
@@ -38,15 +40,15 @@ const PlaceOrder = () => {
 
     // Prepare options for Razorpay
     const options = {
-      key: "rzp_test_zvn4xK1lXFOMrc", // Fetch Razorpay key from .env
+      key: "rzp_test_zvn4xK1lXFOMrc",  // Replace with your actual Razorpay key
       amount: totalAmount * 100, // Amount in paisa
       currency: 'INR',
       name: 'Guru Soya Products',
       description: 'Test Transaction',
       image: logo,
       handler: function (response) {
-        // Handle successful payment
-        console.log('Payment successful:', response);
+        // Navigate to PaymentSuccess page after successful payment
+        navigate('/payment-success', { state: { paymentId: response.razorpay_payment_id } });
       },
       prefill: {
         name: `${data.firstName} ${data.lastName}`,
@@ -66,10 +68,11 @@ const PlaceOrder = () => {
       }
     };
 
+    // Open Razorpay payment window
     const rzp = new window.Razorpay(options);
     rzp.open();
 
-    // Make API request to place order
+    // Prepare order data for the backend
     const orderItems = item_list.filter(item => cartItems[item._id] > 0)
                                 .map(item => ({ ...item, quantity: cartItems[item._id] }));
     const orderData = {

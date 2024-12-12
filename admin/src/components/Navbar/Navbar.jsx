@@ -1,20 +1,36 @@
-import React from 'react'
-import './Navbar.css'
-import { assets } from '../../assets/assets'
-import { NavLink } from 'react-router-dom'
+import React from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import './Navbar.css';
+import { assets } from '../../assets/assets';
 
-const Navbar = () => {
+const Navbar = ({ setIsAuthenticated }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    navigate('/adminlogin');
+  };
+
   return (
     <div className="navbar">
-        <NavLink to='/'>
-            <img className='logo' src={assets.wh_logo} alt="" />
-        </NavLink>
-        <div className="rightside">
-            <NavLink to='/'><p>Home</p></NavLink>
-            <img className='profile' src={assets.profile_image} alt="" />
-        </div>
-    </div>
-  )
-}
+      <NavLink to='/dashboard' className="logo">
+        <img src={assets.wh_logo} alt="Logo" />
+      </NavLink>
 
-export default Navbar
+      <div className="nav-links">
+        <NavLink to="/dashboard" className="nav-link">Home</NavLink>
+        <NavLink to="/profile" className="nav-link">Profile</NavLink>
+        <NavLink to="/settings" className="nav-link">Settings</NavLink>
+        
+        {/* Logout Button */}
+        <button className="nav-link logout-btn" onClick={handleLogout}>
+          Logout
+        </button>
+
+        <img src={assets.profile_image} alt="Profile" className="profile-img" />
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;

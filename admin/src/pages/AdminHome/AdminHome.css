@@ -1,80 +1,146 @@
-
-
-.Adminhome{
-    width: 82%;
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 200px;
-    background: var(--gradient-background);
-    animation: moveGradient 60s linear infinite;
+/* General Dashboard Styles */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #eceff1, #f3f4f6);
+  margin: 0;
+  padding: 0;
 }
 
-
-
-.Adminhome .date-time{
-    margin-top: -250px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 650px;
+/* Dashboard Container */
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.Adminhome .date-time p{
-    font-size: 26px;
-    font-weight: 600;
-    color: rgb(67, 110, 63);
+/* Header */
+.header {
+  text-align: center;
+  font-weight: bold;
+  color: #222;
+  font-size: 36px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.Adminhome .content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+/* Current Date and Time */
+.date-time {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  padding: 10px;
+  font-size: 18px;
+  color: #555;
 }
 
-.Adminhome .content h1{
-    font-size: 60px;
-    background: linear-gradient(to right, #01a5cd, rgb(155, 155, 155), #f96f0c);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+/* Content Wrapper */
+.content {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-.Adminhome .content p{
-    font-size: 20px;
-    font-weight:500;
-    color: rgb(65, 65, 65);
+/* Sidebar Navigation */
+.sidebar {
+  background: #1e88e5;
+  color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  /* height: fit-content; */
+  min-width: 250px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
+.sidebar h3 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+}
 
-.Adminhome .date-time .clock {
-    /* text-align: center; */
-    /* min-height: 100vh; */
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    /* justify-content: center; */
-    font-size: calc(10px + 2vmin);
+.nav-item {
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  background: #1976d2;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Summary Widgets */
+.summary-widgets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.widget {
+  background: #ffeb3d;
+  padding: 20px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.widget:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Sales Analytics Chart */
+.chart-container {
+  background: #fff;
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.chart-container h3 {
+  font-weight: bold;
+}
+
+/* Notifications */
+.notifications {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.notification-card {
+  background: #ffcdd2;
+  padding: 20px;
+  border-radius: 12px;
+  flex: 1;
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.notification-card:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+    background: #1e88e5;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    border-radius: 12px;
+    font-weight: bold;
+    margin-top: 40px;
   }
-  .Adminhome .date-time .clock h2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin: 0;
-    font-size: 36px;
-    font-weight: 600;
-    color: rgb(67, 110, 63);
-  }
 
-  .Adminhome .date-time .clock h2 p{
-    font-size: 20px;
+  .footer p{
+    color: #eceff1;
   }
-  
-
-  

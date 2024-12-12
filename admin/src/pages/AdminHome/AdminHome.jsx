@@ -1,79 +1,107 @@
-import React, { useState, useEffect } from 'react';
-import './AdminHome.css';
-import Clock from '../../components/clock/clock';
+import React, { useState, useEffect } from "react";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+} from "chart.js";
+import "./AdminHome.css";
+
+ChartJS.register(
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale
+);
 
 const AdminHome = () => {
-  const [greeting, setGreeting] = useState('');
-  const [backgroundColor, setBackgroundColor] = useState('');
-  const [currentDate, setCurrentDate] = useState('');
-  const [textColor, setTextColor] = useState('');
+  const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
-    const updateDateTime = () => {
-      const now = new Date();
-      const currentHour = now.getHours();
-      let greetingText;
-      let bgColor;
-      let pTextColor;
+    const interval = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
 
-      if (currentHour >= 4 && currentHour < 12) {
-        greetingText = 'GOOD MORNING,';
-        bgColor = '#FFFAF0'; // Light color for morning
-        pTextColor = '#333'; // Dark color for morning
-      } else if (currentHour >= 12 && currentHour < 16) {
-        greetingText = 'GOOD AFTERNOON,';
-        bgColor = '#FFFACD'; // Light golden color for afternoon
-        pTextColor = '#333'; // Dark color for afternoon
-      } else if (currentHour >= 16 && currentHour < 20) {
-        greetingText = 'GOOD EVENING,';
-        bgColor = '#FFD700'; // Golden color for evening
-        pTextColor = '#333'; // Dark color for evening
-      } else {
-        greetingText = 'GOOD NIGHT,';
-        bgColor = '#000000'; // Dark slate gray color for night
-        pTextColor = '#FFF'; // Light color for night
-      }
-
-      setGreeting(greetingText);
-      setBackgroundColor(bgColor);
-      setTextColor(pTextColor);
-      setCurrentDate(now.toDateString());
-    };
-
-    updateDateTime();
-    const interval = setInterval(updateDateTime, 60000); // Update every minute
-
-    return () => clearInterval(interval);
+    return () => clearInterval(interval); // Cleanup the interval on component unmount
   }, []);
 
-
-  // clock 
-
-  const [time, setTime] = useState(new Date());
-
-  useEffect(() => {
-    const timerID = setInterval(() => tick(), 1000);
-    return () => clearInterval(timerID);
-  }, []);
-
-  const tick = () => {
-    setTime(new Date());
+  const data = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+    datasets: [
+      {
+        label: "Monthly Sales",
+        backgroundColor: "#ff9800",
+        data: [300, 500, 450, 600, 750],
+      },
+    ],
   };
 
   return (
-    <div className="Adminhome" style={{ backgroundColor: backgroundColor }}>
-        <div className="date-time">
-            <p style={{ color: textColor }}>{currentDate}</p>
-            <div className="clock">
-                <h2 style={{ color: textColor }}><p style={{ color: textColor }}>Time: </p>{time.toLocaleTimeString()}</h2>
+    <div className="dashboard">
+      {/* Header */}
+      <h2 className="header">E-commerce Admin Dashboard</h2>
+
+      {/* Current Date and Time */}
+      <div className="date-time">
+        <span>{currentTime.toLocaleDateString()}</span>
+        <span>{currentTime.toLocaleTimeString()}</span>
+      </div>
+
+      {/* Main Container */}
+      <div className="content">
+        {/* Sidebar */}
+
+        {/* Main Content */}
+        <div className="main-content">
+          {/* Summary Widgets */}
+          <div className="summary-widgets">
+            {[
+              { title: "Total Products", value: 1500 },
+              { title: "Total Orders", value: 750 },
+              { title: "Total Revenue", value: "$500K" },
+              { title: "Active Customers", value: 3200 },
+            ].map((item, index) => (
+              <div key={index} className="widget">
+                <h4>{item.title}</h4>
+                <p>{item.value}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Sales Analytics Chart */}
+          <div className="chart-container">
+            <h3>Monthly Sales Analytics</h3>
+            <div className="chart">
+              <Bar data={data} />
             </div>
+          </div>
+
+          {/* Notifications */}
+          <div className="notifications">
+            {[
+              { title: "New Order Received", details: "Order ID: #4567" },
+              { title: "Stock Running Low", details: "Product ID: 1234" },
+              { title: "Customer Feedback", details: "Rating: ⭐⭐⭐⭐⭐" },
+            ].map((notif, index) => (
+              <div key={index} className="notification-card">
+                <p>{notif.title}</p>
+                <span>{notif.details}</span>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="content">
-            <h1>{greeting}</h1>
-            <p style={{ color: textColor }}>Your efforts make a difference. Here's to another successful day at Guru Soya Products!</p>
-            <p style={{ color: textColor }}>***</p>
-        </div>
-      
+      </div>
+
+      {/* Footer */}
+      <footer className="footer">
+        <p>© 2024 E-commerce Dashboard. All Rights Reserved.</p>
+      </footer>
     </div>
   );
 };

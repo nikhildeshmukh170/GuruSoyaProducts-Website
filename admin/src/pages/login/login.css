@@ -1,0 +1,104 @@
+/* AdminLogin.css */
+
+/* Background and container */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #a8e4a0, #fff, #ffeb3d);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Decorative circles */
+  .decorative-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+    filter: blur(75px);
+  }
+  
+  .circle-green {
+    width: 300px;
+    height: 300px;
+    background-color: #4caf50;
+    top: -50px;
+    left: -100px;
+  }
+  
+  .circle-yellow {
+    width: 200px;
+    height: 200px;
+    background-color: #ffeb3d;
+    bottom: -50px;
+    right: -80px;
+  }
+  
+  /* Logo */
+  .login-container .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .login-container .logo img {
+    margin-top: -60px;
+    width: 200px;
+    height: 200px;
+    margin-right: 10px;
+  }
+  
+  /* Login Card */
+  .login-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    margin: 20px;
+  }
+  
+  /* Form Elements */
+  .login-card input[type="text"],
+  .login-card input[type="password"],
+  .login-card button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: box-shadow 0.2s ease-in-out;
+  }
+  
+  .login-card input[type="text"]:focus,
+  .login-card input[type="password"]:focus {
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.5);
+  }
+  
+  .login-card button {
+    background-color: #4caf50;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .login-card button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Footer */
+  .footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+  }
+  

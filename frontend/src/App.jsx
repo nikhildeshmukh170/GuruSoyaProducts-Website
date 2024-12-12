@@ -17,6 +17,7 @@ import Faqs from "./components/Faqs/Faqs";
 import ShippingInfo from "./components/ShippingInfo/ShippingInfo";
 import ReturnPolicy from "./components/ReturnPolicy/ReturnPolicy";
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
+import Orderpage from "./pages/Orderpage/Orderpage";
 
 // import './App.css'; // Assuming you have some global styles
 
@@ -50,6 +51,7 @@ const App = () => {
                 <Route path="/contactus" element={<ContactUs />} />
                 <Route path="/place-order" element={<PlaceOrder />} />
                 <Route path="/payment-success" element={<PaymentSuccess />} />
+                <Route path="/orderpage" element={<Orderpage />} />
                 <Route path="/product/:productId" element={<ProductDetail />} />
                 <Route path="/faq" element={<Faqs />} />
                 <Route path="/shipping" element={<ShippingInfo />} />
